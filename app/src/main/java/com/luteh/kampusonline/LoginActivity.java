@@ -1,20 +1,59 @@
 package com.luteh.kampusonline;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+
+import jp.wasabeef.blurry.Blurry;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private Handler bgBlurHandler = null;
+    private Runnable bgBlurRunnable = null;
+    private final int BG_BLUR_TIME_MILLISECOND = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
+
+        initBackgroundBlur();
+    }
+
+    public void initBackgroundBlur() {
+
+        if (bgBlurRunnable == null) {
+            bgBlurRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    bluringBackgroundImage();
+                }
+            };
+        }
+
+        if (bgBlurHandler == null) {
+            bgBlurHandler = new Handler();
+        }
+
+        bgBlurHandler.postDelayed(bgBlurRunnable, BG_BLUR_TIME_MILLISECOND);
+    }
+
+    public void bluringBackgroundImage(){
+        Blurry.with(getApplicationContext())
+                .radius(10)
+                .sampling(1)
+                .async()
+                .capture(findViewById(R.id.img_bg))
+                .into((ImageView)findViewById(R.id.img_bg));
     }
 
 }
