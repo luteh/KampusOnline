@@ -20,7 +20,7 @@ public class LoginActivity extends BaseActivity {
 
     private Handler bgBlurHandler = null;
     private Runnable bgBlurRunnable = null;
-    private final int BG_BLUR_TIME_MILLISECOND = 1;
+    private final int BG_BLUR_TIME_MILLISECOND = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class LoginActivity extends BaseActivity {
             bgBlurRunnable = new Runnable() {
                 @Override
                 public void run() {
-                    bluringBackgroundImage();
+                    bluringBackgroundImage(R.id.img_bg);
                 }
             };
         }
@@ -48,14 +48,4 @@ public class LoginActivity extends BaseActivity {
 
         bgBlurHandler.postDelayed(bgBlurRunnable, BG_BLUR_TIME_MILLISECOND);
     }
-
-    public void bluringBackgroundImage(){
-        Blurry.with(getApplicationContext())
-                .radius(10)
-                .sampling(1)
-                .async()
-                .capture(findViewById(R.id.img_bg))
-                .into((ImageView)findViewById(R.id.img_bg));
-    }
-
 }

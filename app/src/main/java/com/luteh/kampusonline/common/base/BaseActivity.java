@@ -9,11 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageView;
 
 import com.luteh.kampusonline.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import jp.wasabeef.blurry.Blurry;
 
 /**
  * Created by Luthfan Maftuh on 17/08/2018.
@@ -69,5 +71,14 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    public void bluringBackgroundImage(int imgResourceId){
+        Blurry.with(getApplicationContext())
+                .radius(10)
+                .sampling(1)
+                .async()
+                .capture(findViewById(imgResourceId))
+                .into((ImageView)findViewById(imgResourceId));
     }
 }
