@@ -12,9 +12,11 @@ import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.luteh.kampusonline.common.base.BaseActivity;
+
 import jp.wasabeef.blurry.Blurry;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private Handler bgBlurHandler = null;
     private Runnable bgBlurRunnable = null;

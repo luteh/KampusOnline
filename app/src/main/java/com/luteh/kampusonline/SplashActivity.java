@@ -9,9 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.luteh.kampusonline.common.base.BaseActivity;
 import com.luteh.kampusonline.common.util.PermissionHelper;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     private PermissionHelper permissionHelper;
 
@@ -93,12 +94,4 @@ public class SplashActivity extends AppCompatActivity {
         });
         builder.show();
     }
-
-    public final void startActivityWithFade(Class clazz) {
-        Intent intent = new Intent(this, clazz);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-    }
-
 }
