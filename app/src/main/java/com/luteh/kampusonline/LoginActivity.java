@@ -20,7 +20,7 @@ public class LoginActivity extends BaseActivity {
 
     private Handler bgBlurHandler = null;
     private Runnable bgBlurRunnable = null;
-    private final int BG_BLUR_TIME_MILLISECOND = 1000;
+    private final int BG_BLUR_TIME_MILLISECOND = 500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
