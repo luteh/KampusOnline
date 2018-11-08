@@ -7,8 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.luteh.kampusonline.R;
@@ -21,7 +23,7 @@ import jp.wasabeef.blurry.Blurry;
  * Created by Luthfan Maftuh on 17/08/2018.
  * Email luthfanmaftuh@gmail.com
  */
-public abstract class BaseActivity extends AppCompatActivity implements BaseView{
+public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,25 +62,57 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         startActivity(clazz, null);
     }
 
-    public final void finishToRight(){
+    public final void finishToRight() {
         finish();
         overridePendingTransition(R.anim.anim_sticky, R.anim.anim_leave_right);
     }
 
-    public void hideSoftKeyboard() {
-        View view = getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    public void onRootLayoutClicked(View view) {
+        hideSoftKeyboard(view);
+
+        /*view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideSoftKeyboard(v);
+                return false;
+            }
+        });*/
+    }
+
+    public void hideSoftKeyboard(View view) {
+        try {
+            view = getCurrentFocus();
+            if (view != null) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//                view.setFocusableInTouchMode(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void bluringBackgroundImage(int imgResourceId){
+    public void showSoftKeyboard(EditText editText) {
+        editText.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+    }
+
+    public void bluringBackgroundImage(int imgResourceId) {
         Blurry.with(getApplicationContext())
                 .radius(10)
                 .sampling(1)
                 .async()
                 .capture(findViewById(imgResourceId))
-                .into((ImageView)findViewById(imgResourceId));
+                .into((ImageView) findViewById(imgResourceId));
     }
+
+    /*public void setupUI(final View view){
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                hideSoftKeyboard(view);
+                return false;
+            }
+        });
+    }*/
 }
