@@ -49,7 +49,9 @@ public class LoginActivity extends BaseActivity {
 
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
-            Common.showSuccessMessage(this, "Transition to the next page");
+//            Common.showSuccessMessage(this, "Transition to the next page");
+            startActivityWithFade(DashboardActivity.class);
+            finishToRight();
         } else {
             Common.showErrorMessage(this, "Current User is null");
         }
@@ -98,6 +100,7 @@ public class LoginActivity extends BaseActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                Common.showSuccessMessage(getContext(), "Login Success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 updateUI(user);
                             } else {
