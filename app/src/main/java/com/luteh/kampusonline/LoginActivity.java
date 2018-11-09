@@ -2,21 +2,16 @@ package com.luteh.kampusonline;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.common.Common;
@@ -26,8 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTouch;
-import butterknife.internal.Utils;
-import jp.wasabeef.blurry.Blurry;
 
 public class LoginActivity extends BaseActivity {
 
@@ -51,8 +44,14 @@ public class LoginActivity extends BaseActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        updateUI(currentUser);
+    }
 
+    private void updateUI(FirebaseUser currentUser) {
+        if (currentUser != null) {
+            Common.showSuccessMessage(this, "Transition to the next page");
+        } else {
+            Common.showErrorMessage(this, "Current User is null");
         }
     }
 
@@ -66,7 +65,7 @@ public class LoginActivity extends BaseActivity {
         mAuth = FirebaseAuth.getInstance();
 
         initBackgroundBlur();
-        }
+    }
 
     public void initBackgroundBlur() {
 
@@ -87,18 +86,36 @@ public class LoginActivity extends BaseActivity {
     }
 
     @OnClick(R.id.btnLogin)
-    public void submitLogIn(){
-        if (validate(etEmailLogin, etPasswordLogin)) {
-            Common.showToastMessage(this, "Success!");
+    public void submitLogIn() {
+        if (validateForms(etEmailLogin, etPasswordLogin)) {
+//            Common.showToastMessage(this, "Success!");
+            String email = etEmailLogin.getText().toString();
+            String password = etPasswordLogin.getText().toString();
+
+            Common.showProgressBar(this);
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                            } else {
+                                Common.showErrorMessage(getContext(), "Authentication failed!");
+                                updateUI(null);
+                            }
+                            Common.dismissProgressBar();
+                        }
+                    });
         }
     }
 
-    private boolean validate(EditText email, EditText password) {
+    private boolean validateForms(EditText email, EditText password) {
         tilEmailLogin.setError(null);
         tilPasswordLogin.setError(null);
 
-        if (!Common.isValidEmail(email)) {
-            tilEmailLogin.setError(getResources().getText(R.string.label_message_unvalid_email));
+        if (Common.isEmpty(email)) {
+            tilEmailLogin.setError(getResources().getText(R.string.label_message_email_required));
             showSoftKeyboard(email);
             return false;
         }
@@ -113,7 +130,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     @OnTouch(R.id.rootLoginLayout)
-    public boolean onTouchLayout(View view, MotionEvent event){
+    public boolean onTouchLayout(View view, MotionEvent event) {
         hideSoftKeyboard(view);
         return false;
     }
