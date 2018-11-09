@@ -3,6 +3,9 @@ package com.luteh.kampusonline;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,13 +20,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.common.base.BaseActivity;
 
+import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.OnItemSelected;
 
 public class DashboardActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    @BindString(R.string.title_dashboard_fragment)
+    String dashboardTitle;
+    @BindString(R.string.title_hasil_studi_fragment)
+    String hasilStudiTitle;
+
     private FirebaseAuth mAuth;
+    private Fragment mCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +44,6 @@ public class DashboardActivity extends BaseActivity
 
         mAuth = FirebaseAuth.getInstance();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -51,6 +52,36 @@ public class DashboardActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // Create and set Android Fragment as default.
+        Fragment dashboardFragment = new DashboardFragment();
+        this.setDefaultFragment(dashboardFragment);
+    }
+
+    // This method is used to set the default fragment that will be shown.
+    private void setDefaultFragment(Fragment defaultFragment) {
+        this.replaceFragment(defaultFragment, R.string.title_dashboard_fragment);
+    }
+
+    // Replace current Fragment with the destination Fragment.
+    public void replaceFragment(Fragment destFragment, int titleResId) {
+
+        if (mCurrentFragment != destFragment) {
+            // First get FragmentManager object.
+            FragmentManager fragmentManager = this.getSupportFragmentManager();
+
+            // Begin Fragment transaction.
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            // Replace the layout holder with the required Fragment object.
+            fragmentTransaction.replace(R.id.fragmentFrameLayout, destFragment);
+
+
+            // Commit the Fragment replace action.
+            fragmentTransaction.commit();
+            setTitle(titleResId);
+            mCurrentFragment = destFragment;
+        }
     }
 
 
@@ -95,21 +126,13 @@ public class DashboardActivity extends BaseActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (item.getItemId()) {
+            case R.id.navDashboard:
+                replaceFragment(new DashboardFragment(), R.string.title_dashboard_fragment);
+                break;
+            case R.id.navHasilStudi:
+                replaceFragment(new HasilStudiFragment(), R.string.title_hasil_studi_fragment);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
