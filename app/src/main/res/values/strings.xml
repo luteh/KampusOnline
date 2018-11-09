@@ -17,7 +17,7 @@
     <string name="label_message_password_incorrect">Password is incorrect!</string>
     <string name="label_message_email_password_not_match">Email and Password do not match</string>
 
-    <string name="text_logout">Logout</string>
+    <string name="label_logout">Logout</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

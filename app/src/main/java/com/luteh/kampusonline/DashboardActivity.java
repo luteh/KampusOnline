@@ -13,15 +13,26 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class DashboardActivity extends AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.luteh.kampusonline.common.base.BaseActivity;
+
+import butterknife.BindView;
+import butterknife.OnItemSelected;
+
+public class DashboardActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +53,7 @@ public class DashboardActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -61,18 +73,24 @@ public class DashboardActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.menuLogout:
+                mAuth.signOut();
+                FirebaseUser user = mAuth.getCurrentUser();
+                updateUI(user);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void updateUI(FirebaseUser currentUser) {
+        if (currentUser == null) {
+            startActivityFromRight(LoginActivity.class);
+            finishToRight();
+        }
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
