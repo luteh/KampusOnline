@@ -56,6 +56,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         setDefaultFragment(dashboardFragment);
     }
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

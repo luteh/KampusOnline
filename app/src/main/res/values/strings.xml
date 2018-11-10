@@ -35,6 +35,14 @@
     <string name="label_panduan_ikad">Panduan Ikad</string>
     <string name="label_download_frs">Download Manual FRS Online</string>
     <string name="label_download">Download</string>
+    <string-array name="label_dashboard_array">
+        <item>@string/label_kode_etik</item>
+        <item>@string/label_panduan_akademik</item>
+        <item>@string/label_panduan_skpi</item>
+        <item>@string/label_panduan_keuangan</item>
+        <item>@string/label_panduan_blog</item>
+        <item>@string/label_panduan_ikad</item>
+    </string-array>
 
     <string name="title_hasil_studi_fragment">Hasil Studi</string>
     <string name="title_keuangan_fragment">Keuangan</string>
