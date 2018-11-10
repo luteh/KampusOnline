@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
@@ -24,6 +27,8 @@ import jp.wasabeef.blurry.Blurry;
  * Email luthfanmaftuh@gmail.com
  */
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
+
+    private Fragment mCurrentFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -115,4 +120,29 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             }
         });
     }*/
+
+    // This method is used to set the default fragment that will be shown.
+    public void setDefaultFragment(Fragment defaultFragment) {
+        this.replaceFragment(defaultFragment, R.string.title_dashboard_fragment);
+    }
+
+    // Replace current Fragment with the destination Fragment.
+    public void replaceFragment(Fragment destFragment, int titleResId) {
+
+        if (mCurrentFragment != destFragment) {
+            // First get FragmentManager object.
+            FragmentManager fragmentManager = this.getSupportFragmentManager();
+
+            // Begin Fragment transaction.
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            // Replace the layout holder with the required Fragment object.
+            fragmentTransaction.replace(R.id.fragmentFrameLayout, destFragment);
+
+            // Commit the Fragment replace action.
+            fragmentTransaction.commit();
+            setTitle(titleResId);
+            mCurrentFragment = destFragment;
+        }
+    }
 }

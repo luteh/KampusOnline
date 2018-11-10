@@ -25,8 +25,21 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
+    <!--Dashboard-->
     <string name="title_dashboard_fragment">Dashboard</string>
+    <string name="label_kode_etik">Kode Etik Mahasiswa</string>
+    <string name="label_panduan_akademik">Buku Panduan Akademik</string>
+    <string name="label_panduan_skpi">Panduan Pengisian SKPI</string>
+    <string name="label_panduan_keuangan">Buku Panduan Keuangan Reg A</string>
+    <string name="label_panduan_blog">Buku Panduan Blog</string>
+    <string name="label_panduan_ikad">Panduan Ikad</string>
+    <string name="label_download_frs">Download Manual FRS Online</string>
+    <string name="label_download">Download</string>
+
     <string name="title_hasil_studi_fragment">Hasil Studi</string>
+    <string name="title_keuangan_fragment">Keuangan</string>
+    <string name="title_jadwal_fragment">Jadwal</string>
+    <string name="title_rencana_studi_fragment">Rencana Studi</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

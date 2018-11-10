@@ -22,18 +22,17 @@ import com.luteh.kampusonline.common.base.BaseActivity;
 
 import butterknife.BindString;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnItemSelected;
 
-public class DashboardActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class DashboardActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindString(R.string.title_dashboard_fragment)
-    String dashboardTitle;
-    @BindString(R.string.title_hasil_studi_fragment)
-    String hasilStudiTitle;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
 
     private FirebaseAuth mAuth;
-    private Fragment mCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,49 +40,21 @@ public class DashboardActivity extends BaseActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
 
         mAuth = FirebaseAuth.getInstance();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Create and set Android Fragment as default.
         Fragment dashboardFragment = new DashboardFragment();
-        this.setDefaultFragment(dashboardFragment);
+        setDefaultFragment(dashboardFragment);
     }
-
-    // This method is used to set the default fragment that will be shown.
-    private void setDefaultFragment(Fragment defaultFragment) {
-        this.replaceFragment(defaultFragment, R.string.title_dashboard_fragment);
-    }
-
-    // Replace current Fragment with the destination Fragment.
-    public void replaceFragment(Fragment destFragment, int titleResId) {
-
-        if (mCurrentFragment != destFragment) {
-            // First get FragmentManager object.
-            FragmentManager fragmentManager = this.getSupportFragmentManager();
-
-            // Begin Fragment transaction.
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            // Replace the layout holder with the required Fragment object.
-            fragmentTransaction.replace(R.id.fragmentFrameLayout, destFragment);
-
-
-            // Commit the Fragment replace action.
-            fragmentTransaction.commit();
-            setTitle(titleResId);
-            mCurrentFragment = destFragment;
-        }
-    }
-
 
     @Override
     public void onBackPressed() {
@@ -122,7 +93,6 @@ public class DashboardActivity extends BaseActivity
         }
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -130,8 +100,16 @@ public class DashboardActivity extends BaseActivity
             case R.id.navDashboard:
                 replaceFragment(new DashboardFragment(), R.string.title_dashboard_fragment);
                 break;
+            case R.id.navKeuangan:
+                break;
             case R.id.navHasilStudi:
                 replaceFragment(new HasilStudiFragment(), R.string.title_hasil_studi_fragment);
+                break;
+            case R.id.navJadwal:
+                break;
+            case R.id.navRencanaStudi:
+                break;
+            case R.id.navLogout:
                 break;
         }
 
