@@ -50,8 +50,8 @@ public class LoginActivity extends BaseActivity {
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
 //            Common.showSuccessMessage(this, "Transition to the next page");
+            finishWithFade();
             startActivityWithFade(DashboardActivity.class);
-            finishToRight();
         } else {
             Common.showErrorMessage(this, "Current User is null");
         }

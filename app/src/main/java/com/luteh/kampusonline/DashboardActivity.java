@@ -89,8 +89,8 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
 
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser == null) {
-            startActivityFromRight(LoginActivity.class);
-            finishToRight();
+            finishWithFade();
+            startActivityWithFade(LoginActivity.class);
         }
     }
 

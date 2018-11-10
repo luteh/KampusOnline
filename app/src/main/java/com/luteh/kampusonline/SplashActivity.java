@@ -19,7 +19,7 @@ public class SplashActivity extends BaseActivity {
 
     private Handler splashScreenHandler = null;
     private Runnable splashScreenRunnable = null;
-    private final int SPLASH_TIME_MILLISECOND = 3000;
+    private final int SPLASH_TIME_MILLISECOND = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

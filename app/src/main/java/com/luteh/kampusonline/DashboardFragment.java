@@ -67,7 +67,7 @@ public class DashboardFragment extends BaseFragment {
             rvDashboard.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
             // specify an adapter (see also next example)
-            mAdapter = new DashboardAdapter(drawableItems, labelItems);
+            mAdapter = new DashboardAdapter(getContext(),drawableItems, labelItems);
             rvDashboard.setAdapter(mAdapter);
         }
     }

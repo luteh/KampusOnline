@@ -2,20 +2,26 @@ package com.luteh.kampusonline.common.base;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.transition.Visibility;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.luteh.kampusonline.R;
 
 import butterknife.BindView;
@@ -55,6 +61,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         overridePendingTransition(R.anim.anim_enter_right, R.anim.anim_sticky);
     }
 
+    public final void startActivityFromBottom(Class clazz) {
+        startActivity(clazz);
+        overridePendingTransition(R.anim.anim_enter_bottom, R.anim.anim_sticky);
+    }
+
     public final void startActivity(Class clazz, Bundle bundle) {
         Intent intent = new Intent(this, clazz);
         if (bundle != null) {
@@ -70,6 +81,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     public final void finishToRight() {
         finish();
         overridePendingTransition(R.anim.anim_sticky, R.anim.anim_leave_right);
+    }
+
+    public final void finishWithFade() {
+        finish();
+        overridePendingTransition(android.R.anim.fade_out, R.anim.anim_leave_right);
     }
 
     public void onRootLayoutClicked(View view) {
@@ -136,6 +152,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             // Begin Fragment transaction.
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+            destFragment.setEnterTransition(transitionWithFadeIn());
+            destFragment.setExitTransition(transitionWithFadeOut());
+
+
             // Replace the layout holder with the required Fragment object.
             fragmentTransaction.replace(R.id.fragmentFrameLayout, destFragment);
 
@@ -144,5 +164,23 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
             setTitle(titleResId);
             mCurrentFragment = destFragment;
         }
+    }
+
+    private Fade transitionWithFadeIn() {
+        if (Build.VERSION.SDK_INT > 20) {
+            Fade fadeIn = new Fade();
+            fadeIn.setDuration(500);
+            fadeIn.setMode(Visibility.MODE_IN);
+            return fadeIn;
+        } else return null;
+    }
+
+    private Fade transitionWithFadeOut() {
+        if (Build.VERSION.SDK_INT > 20) {
+            Fade fadeOut = new Fade();
+            fadeOut.setDuration(300);
+            fadeOut.setMode(Visibility.MODE_OUT);
+            return fadeOut;
+        } else return null;
     }
 }

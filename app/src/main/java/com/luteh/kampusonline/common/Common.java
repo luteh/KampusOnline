@@ -50,7 +50,7 @@ public class Common {
         return (!TextUtils.isEmpty(editText.getText()) && Patterns.EMAIL_ADDRESS.matcher(editText.getText()).matches());
     }
 
-    public static boolean isEmpty(EditText editText){
+    public static boolean isEmpty(EditText editText) {
         return TextUtils.isEmpty(editText.getText());
     }
 

@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.luteh.kampusonline.common.Common;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Luthfan Maftuh on 10/11/2018.
@@ -24,8 +26,10 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
 
     private TypedArray drawableItems;
     private String[] labelItems;
+    private Context context;
 
-    public DashboardAdapter(TypedArray drawableItems, String[] labelItems) {
+    public DashboardAdapter(Context context, TypedArray drawableItems, String[] labelItems) {
+        this.context = context;
         this.drawableItems = drawableItems;
         this.labelItems = labelItems;
     }
@@ -40,10 +44,11 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Picasso.get()
                 .load(drawableItems.getResourceId(position, -1))
-                .resize(150,150)
+                .resize(150, 150)
                 .into(holder.imgDashboardListItem);
         holder.tvDashboardListItem.setText(labelItems[position]);
     }
+
 
     @Override
     public int getItemCount() {
@@ -60,6 +65,16 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
         public MyViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+
+        @OnClick
+        public void onClick(View v) {
+            /*switch (this.getLayoutPosition()) {
+                case 0:
+                    Common.showSuccessMessage(context, labelItems[getLayoutPosition()]);
+                    break;
+            }*/
+            Common.showToastMessage(context, labelItems[getLayoutPosition()]);
         }
     }
 }
