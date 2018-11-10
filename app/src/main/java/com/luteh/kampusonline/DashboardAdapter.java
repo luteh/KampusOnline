@@ -1,12 +1,17 @@
 package com.luteh.kampusonline;
 
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,14 +22,10 @@ import butterknife.ButterKnife;
  */
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyViewHolder> {
 
-    private Drawable[] drawableItems;
+    private TypedArray drawableItems;
     private String[] labelItems;
 
-
-    public DashboardAdapter(Drawable[] drawableItems, String[] labelItems) {
-        /*super(itemView);
-        ButterKnife.bind(this, itemView);*/
-
+    public DashboardAdapter(TypedArray drawableItems, String[] labelItems) {
         this.drawableItems = drawableItems;
         this.labelItems = labelItems;
     }
@@ -37,12 +38,16 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-
+        Picasso.get()
+                .load(drawableItems.getResourceId(position, -1))
+                .resize(150,150)
+                .into(holder.imgDashboardListItem);
+        holder.tvDashboardListItem.setText(labelItems[position]);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return drawableItems.length();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

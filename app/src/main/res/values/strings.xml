@@ -44,6 +44,15 @@
         <item>@string/label_panduan_ikad</item>
     </string-array>
 
+    <integer-array name="list_dashboard_img_items">
+        <item>@drawable/img_dashboard_kode_etik</item>
+        <item>@drawable/img_dashboard_panduan_akademik</item>
+        <item>@drawable/img_dashboard_panduan_skpi</item>
+        <item>@drawable/img_dashboard_panduan_keuangan</item>
+        <item>@drawable/img_dashboard_panduan_blog</item>
+        <item>@drawable/img_dashboard_panduan_ikad</item>
+    </integer-array>
+
     <string name="title_hasil_studi_fragment">Hasil Studi</string>
     <string name="title_keuangan_fragment">Keuangan</string>
     <string name="title_jadwal_fragment">Jadwal</string>
