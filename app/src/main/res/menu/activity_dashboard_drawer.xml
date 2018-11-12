@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navDashboard"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/title_dashboard_fragment" />
+        <item
+            android:id="@+id/navKeuangan"
+            android:icon="@drawable/ic_menu_keuangan"
+            android:title="@string/title_keuangan_fragment" />
+        <item
+            android:id="@+id/navHasilStudi"
+            android:icon="@drawable/ic_menu_hasil_studi"
+            android:title="@string/title_hasil_studi_fragment" />
+        <item
+            android:id="@+id/navJadwal"
+            android:icon="@drawable/ic_menu_jadwal"
+            android:title="@string/title_jadwal_fragment" />
+        <item
+            android:id="@+id/navRencanaStudi"
+            android:icon="@drawable/ic_menu_rencana_studi"
+            android:title="@string/title_rencana_studi_fragment" />
+        <item
+            android:id="@+id/navLogout"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="@string/label_logout" />
+    </group>
+
+</menu>
