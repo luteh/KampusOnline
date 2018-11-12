@@ -90,14 +90,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     public void onRootLayoutClicked(View view) {
         hideSoftKeyboard(view);
-
-        /*view.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                hideSoftKeyboard(v);
-                return false;
-            }
-        });*/
     }
 
     public void hideSoftKeyboard(View view) {
@@ -128,15 +120,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
                 .into((ImageView) findViewById(imgResourceId));
     }
 
-    /*public void setupUI(final View view){
-        view.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                hideSoftKeyboard(view);
-                return false;
-            }
-        });
-    }*/
-
     // This method is used to set the default fragment that will be shown.
     public void setDefaultFragment(Fragment defaultFragment) {
         this.replaceFragment(defaultFragment, R.string.title_dashboard_fragment);
@@ -154,7 +137,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
             destFragment.setEnterTransition(transitionWithFadeIn());
             destFragment.setExitTransition(transitionWithFadeOut());
-
 
             // Replace the layout holder with the required Fragment object.
             fragmentTransaction.replace(R.id.fragmentFrameLayout, destFragment);

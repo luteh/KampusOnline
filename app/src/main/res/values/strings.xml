@@ -11,11 +11,12 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="text_login">Login</string>
     <string name="label_message_valid_email">Email is valid</string>
-    <string name="label_message_unvalid_email">Email is unvalid!</string>
+    <string name="label_message_unvalid_email">Email is invalid!</string>
     <string name="label_message_email_required">Email is required</string>
     <string name="label_message_password_required">Password is required!</string>
     <string name="label_message_password_incorrect">Password is incorrect!</string>
-    <string name="label_message_email_password_not_match">Email and Password do not match</string>
+    <string name="label_message_email_password_not_match">Email and Password don\'t match</string>
+    <string name="message_authentication_failed">Authentication failed</string>
 
     <string name="label_logout">Logout</string>
     <string name="title_activity_dashboard">DashboardActivity</string>

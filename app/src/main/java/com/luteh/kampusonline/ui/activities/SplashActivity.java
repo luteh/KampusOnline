@@ -1,15 +1,14 @@
-package com.luteh.kampusonline;
+package com.luteh.kampusonline.ui.activities;
 
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
 import com.luteh.kampusonline.common.util.PermissionHelper;
 

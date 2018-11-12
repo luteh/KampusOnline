@@ -1,25 +1,21 @@
-package com.luteh.kampusonline;
+package com.luteh.kampusonline.ui.fragments;
 
 
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.luteh.kampusonline.adapter.DashboardAdapter;
+import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseFragment;
 
 import butterknife.BindArray;
-import butterknife.BindDrawable;
-import butterknife.BindInt;
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
