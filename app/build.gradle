@@ -69,10 +69,6 @@ dependencies {
 
     //Android PDF Viewer
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
-
-    //Material Edit Text
-    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
-
 }
 
 apply plugin: 'com.google.gms.google-services'
