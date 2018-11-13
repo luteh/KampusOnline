@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnRenderListener;
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.AppConstant;
 import com.luteh.kampusonline.common.Common;
@@ -37,6 +38,7 @@ public class PDFActivity extends BaseActivity {
                 .swipeHorizontal(false)
                 .enableDoubletap(true)
                 .defaultPage(0)
+                .scrollHandle(new DefaultScrollHandle(this, true))
                 .onRender(new OnRenderListener() {
                     @Override
                     public void onInitiallyRendered(int nbPages, float pageWidth, float pageHeight) {
