@@ -2,7 +2,7 @@ package com.luteh.kampusonline.presenter.login;
 
 import android.content.Context;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,31 +20,9 @@ public class LoginPresenterImp implements ILoginPresenter {
     private Context context;
     private ILoginView iLoginView;
 
-    private Handler bgBlurHandler = null;
-    private Runnable bgBlurRunnable = null;
-    private final int BG_BLUR_TIME_MILLISECOND = 500;
-
     public LoginPresenterImp(Context context, ILoginView iLoginView) {
         this.context = context;
         this.iLoginView = iLoginView;
-    }
-
-    @Override
-    public void initBlurBackground() {
-        if (bgBlurRunnable == null) {
-            bgBlurRunnable = new Runnable() {
-                @Override
-                public void run() {
-                    iLoginView.onBlurBackground();
-                }
-            };
-        }
-
-        if (bgBlurHandler == null) {
-            bgBlurHandler = new Handler();
-        }
-
-        bgBlurHandler.postDelayed(bgBlurRunnable, BG_BLUR_TIME_MILLISECOND);
     }
 
     @Override

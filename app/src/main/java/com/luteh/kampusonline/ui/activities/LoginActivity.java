@@ -1,12 +1,12 @@
 package com.luteh.kampusonline.ui.activities;
 
 import android.os.Bundle;
-import android.support.design.widget.TextInputLayout;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.R;
@@ -27,14 +27,13 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     private FirebaseAuth mAuth;
 
     @BindView(R.id.etEmailLogin)
-    EditText etEmailLogin;
+    TextInputEditText etEmailLogin;
     @BindView(R.id.etPasswordLogin)
-    EditText etPasswordLogin;
+    TextInputEditText etPasswordLogin;
     @BindView(R.id.tilEmailLogin)
     TextInputLayout tilEmailLogin;
     @BindView(R.id.tilPasswordLogin)
     TextInputLayout tilPasswordLogin;
-
 
     @Override
     protected void onStart() {
@@ -59,13 +58,11 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
 
         iLoginPresenter = new LoginPresenterImp(this, this);
 
         mAuth = FirebaseAuth.getInstance();
-
-        iLoginPresenter.initBlurBackground();
     }
 
     @OnClick(R.id.btnLogin)
@@ -78,11 +75,6 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     public boolean onTouchLayout(View view, MotionEvent event) {
         hideSoftKeyboard(view);
         return false;
-    }
-
-    @Override
-    public void onBlurBackground() {
-        bluringBackgroundImage(R.id.img_bg);
     }
 
     @Override
@@ -114,6 +106,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     @Override
     public void clearError() {
         tilEmailLogin.setError(null);
+        tilEmailLogin.setErrorEnabled(false);
         tilPasswordLogin.setError(null);
     }
 }

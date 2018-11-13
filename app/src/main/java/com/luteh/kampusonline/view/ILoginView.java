@@ -8,11 +8,6 @@ import com.google.firebase.auth.FirebaseUser;
  */
 public interface ILoginView {
     /**
-     * Blur background image
-     **/
-    void onBlurBackground();
-
-    /**
      * Login success
      **/
     void onLoginSuccess(FirebaseUser user);

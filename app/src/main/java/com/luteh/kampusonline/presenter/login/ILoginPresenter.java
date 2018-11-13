@@ -5,12 +5,6 @@ package com.luteh.kampusonline.presenter.login;
  * Email luthfanmaftuh@gmail.com
  */
 public interface ILoginPresenter {
-
-    /**
-     * init blur image
-     **/
-    void initBlurBackground();
-
     /**
      * Login
      *

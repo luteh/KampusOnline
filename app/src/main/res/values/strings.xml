@@ -45,6 +45,7 @@
         <item>@string/label_panduan_ikad</item>
     </string-array>
 
+    <drawable name="icon_error">@drawable/ic_error</drawable>
     <integer-array name="list_dashboard_img_items">
         <item>@drawable/img_dashboard_kode_etik</item>
         <item>@drawable/img_dashboard_panduan_akademik</item>

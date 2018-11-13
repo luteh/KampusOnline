@@ -4,29 +4,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
+import androidx.annotation.Nullable;
+
 import android.transition.Fade;
-import android.transition.Slide;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 import android.transition.Visibility;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.luteh.kampusonline.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import jp.wasabeef.blurry.Blurry;
 
 /**
  * Created by Luthfan Maftuh on 17/08/2018.
@@ -35,10 +29,29 @@ import jp.wasabeef.blurry.Blurry;
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
     private Fragment mCurrentFragment;
+    private Unbinder unbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        unbinder = ButterKnife.bind(this);
+
+        onInit();
+    }
+
+    protected void onInit() {
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 
     @Override
@@ -109,15 +122,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         editText.requestFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
-    }
-
-    public void bluringBackgroundImage(int imgResourceId) {
-        Blurry.with(getApplicationContext())
-                .radius(10)
-                .sampling(1)
-                .async()
-                .capture(findViewById(imgResourceId))
-                .into((ImageView) findViewById(imgResourceId));
     }
 
     // This method is used to set the default fragment that will be shown.

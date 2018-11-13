@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#2b0057</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#ff6600</color>
     <color name="utamaPurpleBlue">#330066</color>
+    <color name="utamaDarkBlue">#3F51B5</color>
+    <color name="utamaBlue">#445ce1</color>
     <color name="utamaOrange">#ff6600</color>
     <color name="colorAccentDark">#2090b2</color>
     <color name="colorDivider">#afafaf</color>

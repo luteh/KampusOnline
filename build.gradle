@@ -26,10 +26,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-/*// Centralized lib version across module
-ext {
-    playServiceVersion = '15.0.0'
-    supportLibVersion = '27.1.0'
-    BUTTER_KNIFE_VERSION='8.8.1'
-}*/
