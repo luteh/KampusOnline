@@ -16,9 +16,6 @@ import com.luteh.kampusonline.common.base.BaseActivity;
 
 public class PDFActivity extends BaseActivity {
 
-    private Intent intent;
-    private Bundle bundle;
-
     @BindView(R.id.pdfView)
     PDFView pdfView;
 
@@ -31,8 +28,8 @@ public class PDFActivity extends BaseActivity {
     @Override
     protected void onInit() {
         super.onInit();
-        intent = getIntent();
-        bundle = intent.getExtras();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
         pdfView.fromAsset(bundle.getString(AppConstant.KEY_PDF_ASSET))
                 .enableSwipe(true) // allows to block changing pages using swipe
                 .swipeHorizontal(false)
