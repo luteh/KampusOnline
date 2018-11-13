@@ -64,6 +64,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
+    public final void startActivityWithFade(Class clazz, Bundle bundle) {
+        startActivity(clazz, bundle);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
     public final void startActivityFromRight(Class clazz, Bundle bundle) {
         startActivity(clazz, bundle);
         overridePendingTransition(R.anim.anim_enter_right, R.anim.anim_sticky);

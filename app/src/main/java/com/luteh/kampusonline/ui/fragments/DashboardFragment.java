@@ -17,6 +17,7 @@ import com.github.barteksc.pdfviewer.PDFView;
 import com.luteh.kampusonline.adapter.DashboardAdapter;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.adapter.ItemClicked;
+import com.luteh.kampusonline.common.AppConstant;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.ui.activities.PDFActivity;
@@ -32,7 +33,7 @@ import butterknife.Unbinder;
  */
 public class DashboardFragment extends BaseFragment implements ItemClicked {
     private RecyclerView.Adapter mAdapter;
-
+    private Bundle bundle;
 
     @BindView(R.id.rvDashboard)
     RecyclerView rvDashboard;
@@ -42,6 +43,9 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
 
     @BindArray(R.array.list_dashboard_img_items)
     TypedArray drawableItems;
+
+    @BindArray(R.array.pdf_items)
+    String[] pdfItems;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -59,6 +63,7 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
     protected void onInit() {
         super.onInit();
         initRecyclerView();
+        bundle = new Bundle();
     }
 
     private void initRecyclerView() {
@@ -79,7 +84,28 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
     public void onItemClicked(int position) {
         switch (position) {
             case 0:
-                getBaseActivity().startActivityWithFade(PDFActivity.class);
+                bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
+                getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
+                break;
+            case 1:
+                bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
+                getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
+                break;
+            case 2:
+                bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
+                getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
+                break;
+            case 3:
+                bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
+                getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
+                 break;
+            case 4:
+                bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
+                getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
+                break;
+            case 5:
+                bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
+                getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
                 break;
         }
     }
