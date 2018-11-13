@@ -1,5 +1,6 @@
 package com.luteh.kampusonline.common.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -17,6 +18,7 @@ import butterknife.Unbinder;
  */
 public class BaseFragment extends Fragment {
 
+    private BaseActivity baseActivity;
     protected Context context;
     private Unbinder unbinder;
 
@@ -30,6 +32,16 @@ public class BaseFragment extends Fragment {
 
     protected void onInit() {
         // override
+    }
+
+    protected BaseActivity getBaseActivity() {
+        return baseActivity;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        baseActivity = (BaseActivity) context;
     }
 
     @Override

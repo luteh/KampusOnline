@@ -2,7 +2,9 @@ package com.luteh.kampusonline.adapter;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +28,13 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
     private TypedArray drawableItems;
     private String[] labelItems;
     private Context context;
+    private ItemClicked itemClicked;
 
-    public DashboardAdapter(Context context, TypedArray drawableItems, String[] labelItems) {
+    public DashboardAdapter(Context context, TypedArray drawableItems, String[] labelItems, ItemClicked itemClicked) {
         this.context = context;
         this.drawableItems = drawableItems;
         this.labelItems = labelItems;
+        this.itemClicked = itemClicked;
     }
 
     @Override
@@ -73,7 +77,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.MyVi
                     Common.showSuccessMessage(context, labelItems[getLayoutPosition()]);
                     break;
             }*/
-            Common.showToastMessage(context, labelItems[getLayoutPosition()]);
+//            Common.showToastMessage(context, labelItems[getLayoutPosition()]);
+            itemClicked.onItemClicked(getLayoutPosition());
         }
     }
 }

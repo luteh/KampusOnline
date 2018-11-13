@@ -44,7 +44,6 @@
         <item>@string/label_panduan_blog</item>
         <item>@string/label_panduan_ikad</item>
     </string-array>
-
     <drawable name="icon_error">@drawable/ic_error</drawable>
     <integer-array name="list_dashboard_img_items">
         <item>@drawable/img_dashboard_kode_etik</item>
@@ -54,6 +53,14 @@
         <item>@drawable/img_dashboard_panduan_blog</item>
         <item>@drawable/img_dashboard_panduan_ikad</item>
     </integer-array>
+    <string-array name="pdf_items">
+        <item>pdf/kode_etik_mahasiswa.pdf</item>
+        <item>pdf/panduan_akademik.pdf</item>
+        <item>pdf/panduan_skpi.pdf</item>
+        <item>pdf/panduan_keuangan.pdf</item>
+        <item>pdf/panduan_blog.pdf</item>
+        <item>pdf/panduan_ikad.pdf</item>
+    </string-array>
 
     <string name="title_hasil_studi_fragment">Hasil Studi</string>
     <string name="title_keuangan_fragment">Keuangan</string>
