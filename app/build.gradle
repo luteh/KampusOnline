@@ -69,6 +69,10 @@ dependencies {
 
     //Android PDF Viewer
     implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+//    Spots Dialog
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

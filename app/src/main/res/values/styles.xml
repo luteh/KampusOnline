@@ -42,4 +42,12 @@
         <item name="android:textSize">10sp</item>
     </style>
 
+    <!--Spots progress dialog-->
+    <style name="CustomSpotsDialog" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <!--<item name="DialogTitleText">Updating…</item>-->
+        <item name="DialogSpotColor">@color/colorAccent</item>
+        <item name="DialogSpotCount">4</item>
+    </style>
+
 </resources>

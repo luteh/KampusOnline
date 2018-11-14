@@ -1,7 +1,10 @@
 package com.luteh.kampusonline.common;
 
 import android.content.Context;
+
 import androidx.appcompat.app.AlertDialog;
+import dmax.dialog.SpotsDialog;
+
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.EditText;
@@ -18,6 +21,7 @@ public class Common {
 
     private static AlertDialog.Builder builder;
     private static AlertDialog dialog;
+    private static android.app.AlertDialog waitingDialog;
 
     public static void showProgressBar(Context context) {
         builder = new AlertDialog.Builder(context);
@@ -33,6 +37,22 @@ public class Common {
         if (dialog.isShowing()) dialog.dismiss();
     }
 
+    public static void showSpotsProgress(Context context, String message) {
+        waitingDialog = new SpotsDialog.Builder()
+                .setContext(context)
+                .setMessage(message)
+                .setCancelable(false)
+                .setTheme(R.style.CustomSpotsDialog)
+                .build();
+        if(!waitingDialog.isShowing()){
+            waitingDialog.show();
+        }
+    }
+
+    public static void dismissSpotsProgress() {
+        if (waitingDialog.isShowing())
+            waitingDialog.dismiss();
+    }
 
     public static void showSuccessMessage(Context context, String message) {
         FancyToast.makeText(context, message, 0, FancyToast.SUCCESS, false).show();

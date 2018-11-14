@@ -67,7 +67,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @OnClick(R.id.btnLogin)
     protected void submitLogin() {
-        Common.showProgressBar(this);
+        Common.showSpotsProgress(this, getResources().getString(R.string.title_message_loading));
         iLoginPresenter.submitLogin(etEmailLogin.getText().toString(), etPasswordLogin.getText().toString());
     }
 
@@ -80,27 +80,27 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     @Override
     public void onLoginSuccess(FirebaseUser user) {
         updateUI(user);
-        Common.dismissProgressBar();
+        Common.dismissSpotsProgress();
     }
 
     @Override
     public void onLoginError(String message) {
         Common.showErrorMessage(this, message);
-        Common.dismissProgressBar();
+        Common.dismissSpotsProgress();
     }
 
     @Override
     public void onEmailError(String message) {
         tilEmailLogin.setError(message);
         showSoftKeyboard(etEmailLogin);
-        Common.dismissProgressBar();
+        Common.dismissSpotsProgress();
     }
 
     @Override
     public void onPasswordError(String message) {
         tilPasswordLogin.setError(message);
         showSoftKeyboard(etPasswordLogin);
-        Common.dismissProgressBar();
+        Common.dismissSpotsProgress();
     }
 
     @Override
