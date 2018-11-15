@@ -10,6 +10,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.R;
+import com.luteh.kampusonline.common.AppConstant;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseActivity;
 import com.luteh.kampusonline.presenter.login.ILoginPresenter;
@@ -46,8 +47,10 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
 //            Common.showSuccessMessage(this, "Transition to the next page");
+            Bundle bundle = new Bundle();
+            bundle.putString(AppConstant.KEY_UID, currentUser.getUid());
             finishWithFade();
-            startActivityWithFade(DashboardActivity.class);
+            startActivityWithFade(DashboardActivity.class, bundle);
         } /*else {
             Common.showErrorMessage(this, "Current User is null");
         }*/

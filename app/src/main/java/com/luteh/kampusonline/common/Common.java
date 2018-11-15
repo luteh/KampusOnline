@@ -37,6 +37,10 @@ public class Common {
         if (dialog.isShowing()) dialog.dismiss();
     }
 
+    public static void showSpotsProgress(Context context) {
+        showSpotsProgress(context, context.getResources().getString(R.string.title_message_loading));
+    }
+
     public static void showSpotsProgress(Context context, String message) {
         waitingDialog = new SpotsDialog.Builder()
                 .setContext(context)
@@ -44,7 +48,7 @@ public class Common {
                 .setCancelable(false)
                 .setTheme(R.style.CustomSpotsDialog)
                 .build();
-        if(!waitingDialog.isShowing()){
+        if (!waitingDialog.isShowing()) {
             waitingDialog.show();
         }
     }

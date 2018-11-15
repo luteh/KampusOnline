@@ -1,26 +1,37 @@
 package com.luteh.kampusonline.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.luteh.kampusonline.common.AppConstant;
+import com.luteh.kampusonline.common.util.HeaderViewHolder;
+import com.luteh.kampusonline.model.User;
+import com.luteh.kampusonline.presenter.dashboardactivity.DashboardActivityPresenterImp;
+import com.luteh.kampusonline.presenter.dashboardactivity.IDashboardActivityPresenter;
 import com.luteh.kampusonline.ui.fragments.DashboardFragment;
 import com.luteh.kampusonline.ui.fragments.HasilStudiFragment;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
+import com.luteh.kampusonline.view.IDashboardActivityView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
-public class DashboardActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DashboardActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IDashboardActivityView {
+
+    private IDashboardActivityPresenter iDashboardActivityPresenter;
 
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
@@ -50,6 +61,15 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         setDefaultFragment(dashboardFragment);
     }
 
+    @Override
+    protected void onInit() {
+        super.onInit();
+        iDashboardActivityPresenter = new DashboardActivityPresenterImp(this, this);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        iDashboardActivityPresenter.getUserInfo(bundle.getString(AppConstant.KEY_UID));
+    }
 
     @Override
     public void onBackPressed() {
@@ -111,5 +131,14 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onRetrieveUserInfoSuccess(User user) {
+        View headerLayout = navigationView.getHeaderView(0);
+        HeaderViewHolder headerViewHolder = new HeaderViewHolder(headerLayout);
+
+        headerViewHolder.tvProfileName.setText(user.getName());
+        headerViewHolder.tvProfileNpm.setText(user.getNpm());
     }
 }
