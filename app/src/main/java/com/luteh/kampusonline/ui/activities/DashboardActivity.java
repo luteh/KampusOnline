@@ -26,6 +26,7 @@ import com.luteh.kampusonline.ui.fragments.HasilStudiFragment;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
 import com.luteh.kampusonline.view.IDashboardActivityView;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 
@@ -138,7 +139,15 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         View headerLayout = navigationView.getHeaderView(0);
         HeaderViewHolder headerViewHolder = new HeaderViewHolder(headerLayout);
 
-        headerViewHolder.tvProfileName.setText(user.getName());
-        headerViewHolder.tvProfileNpm.setText(user.getNpm());
+        if (user.getUri() != null) {
+            Picasso.get()
+                    .load(user.getUri())
+                    .into(headerViewHolder.imgProfile);
+        }
+
+        if (user.getName() != null) {
+            headerViewHolder.tvProfileName.setText(user.getName());
+            headerViewHolder.tvProfileNpm.setText(user.getNpm());
+        }
     }
 }

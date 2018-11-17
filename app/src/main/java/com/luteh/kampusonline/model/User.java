@@ -1,10 +1,13 @@
 package com.luteh.kampusonline.model;
 
+import android.net.Uri;
+
 /**
  * Created by Luthfan Maftuh on 14/11/2018.
  * Email luthfanmaftuh@gmail.com
  */
 public class User {
+    private Uri uri;
     private String name;
     private String npm;
     private String fakultas;
@@ -13,11 +16,23 @@ public class User {
     public User() {
     }
 
+    public User(Uri uri) {
+        this.uri = uri;
+    }
+
     public User(String name, String npm, String fakultas, String jurusan) {
         this.name = name;
         this.npm = npm;
         this.fakultas = fakultas;
         this.jurusan = jurusan;
+    }
+
+    public Uri getUri() {
+        return uri;
+    }
+
+    public void setUri(Uri uri) {
+        this.uri = uri;
     }
 
     public String getName() {
