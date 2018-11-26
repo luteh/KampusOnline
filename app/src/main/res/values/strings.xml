@@ -62,7 +62,14 @@
         <item>pdf/panduan_ikad.pdf</item>
     </string-array>
 
+    <!--Hasil Studi-->
     <string name="title_hasil_studi_fragment">Hasil Studi</string>
+    <string-array name="label_semester_array">
+        <item>GANJIL - 2012/2013</item>
+        <item>GENAP - 2012/2013</item>
+        <item>GANJIL - 2013/2014</item>
+    </string-array>
+
     <string name="title_keuangan_fragment">Keuangan</string>
     <string name="title_jadwal_fragment">Jadwal</string>
     <string name="title_rencana_studi_fragment">Rencana Studi</string>

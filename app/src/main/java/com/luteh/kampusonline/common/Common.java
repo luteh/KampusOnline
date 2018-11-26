@@ -19,6 +19,8 @@ import com.shashank.sony.fancytoastlib.FancyToast;
  */
 public class Common {
 
+    public static String currentUID = null;
+
     private static AlertDialog.Builder builder;
     private static AlertDialog dialog;
     private static android.app.AlertDialog waitingDialog;

@@ -47,6 +47,7 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     private void updateUI(FirebaseUser currentUser) {
         if (currentUser != null) {
 //            Common.showSuccessMessage(this, "Transition to the next page");
+            Common.currentUID = currentUser.getUid();
             Bundle bundle = new Bundle();
             bundle.putString(AppConstant.KEY_UID, currentUser.getUid());
             finishWithFade();
