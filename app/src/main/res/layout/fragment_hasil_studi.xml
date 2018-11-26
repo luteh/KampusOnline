@@ -25,4 +25,9 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHasilStudi"
+        android:layout_margin="@dimen/margin_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

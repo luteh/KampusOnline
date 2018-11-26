@@ -4,6 +4,9 @@ package com.luteh.kampusonline.ui.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 
 import android.util.Log;
@@ -15,6 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.luteh.kampusonline.R;
+import com.luteh.kampusonline.adapter.DashboardAdapter;
+import com.luteh.kampusonline.adapter.HasilStudiAdapter;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 import com.luteh.kampusonline.presenter.hasilstudi.HasilStudiPresenterImp;
@@ -28,10 +33,12 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class HasilStudiFragment extends BaseFragment implements AdapterView.OnItemSelectedListener, IHasilStudiView {
-
+    private RecyclerView.Adapter mAdapter;
     private static final String TAG = "Hasil_Studi_Fragment";
     @BindView(R.id.semesterSpinner)
     Spinner semesterSpinner;
+    @BindView(R.id.rvHasilStudi)
+    RecyclerView rvHasilStudi;
 
     private IHasilStudiPresenter iHasilStudiPresenter;
 
@@ -52,14 +59,15 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
         super.onInit();
         iHasilStudiPresenter = new HasilStudiPresenterImp(context, this);
 
+        if (rvHasilStudi != null) {
+            rvHasilStudi.setHasFixedSize(true);
+            // use a linear layout manager
+            rvHasilStudi.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
+        }
 
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
                 R.array.label_semester_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
         semesterSpinner.setAdapter(adapter);
 
         semesterSpinner.setOnItemSelectedListener(this);
@@ -83,5 +91,11 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
         for (HasilStudi hasilStudi : hasilStudiList) {
             Log.i(TAG, hasilStudi.mata_kuliah);
         }
+
+        // specify an adapter (see also next example)
+        mAdapter = new HasilStudiAdapter(hasilStudiList);
+        mAdapter.notifyDataSetChanged();
+        rvHasilStudi.setAdapter(mAdapter);
+
     }
 }
