@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.evrencoskun.tableview.TableView;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
