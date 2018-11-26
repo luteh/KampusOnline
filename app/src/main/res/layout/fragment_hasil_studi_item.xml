@@ -13,7 +13,7 @@
         android:layout_weight="5"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_default_16"
+        android:textSize="@dimen/text_small_14"
         tools:text="1" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_weight="20"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_default_16"
+        android:textSize="@dimen/text_small_14"
         tools:text="0611101A" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="55"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_default_16"
+        android:textSize="@dimen/text_small_14"
         tools:text="Mata Kuliah" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_weight="10"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_default_16"
+        android:textSize="@dimen/text_small_14"
         tools:text="SKS" />
 
     <TextView
@@ -52,7 +52,7 @@
         android:layout_weight="10"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_default_16"
+        android:textSize="@dimen/text_small_14"
         tools:text="Nilai" />
 
 </LinearLayout>
