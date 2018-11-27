@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.adapter.DashboardAdapter;
 import com.luteh.kampusonline.adapter.HasilStudiAdapter;
+import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 import com.luteh.kampusonline.presenter.hasilstudi.HasilStudiPresenterImp;
@@ -77,6 +78,7 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Common.showProgressBar(context);
         iHasilStudiPresenter.getHasilStudi(position);
     }
 
@@ -97,5 +99,6 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
         mAdapter.notifyDataSetChanged();
         rvHasilStudi.setAdapter(mAdapter);
 
+        Common.dismissProgressBar();
     }
 }

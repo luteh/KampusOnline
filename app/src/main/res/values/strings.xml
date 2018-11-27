@@ -64,11 +64,17 @@
 
     <!--Hasil Studi-->
     <string name="title_hasil_studi_fragment">Hasil Studi</string>
+    <string name="label_number">No</string>
+    <string name="label_kode">Kode</string>
+    <string name="label_mata_kuliah">Mata Kuliah</string>
+    <string name="label_sks">SKS</string>
+    <string name="label_nilai">Nilai</string>
     <string-array name="label_semester_array">
         <item>GANJIL - 2012/2013</item>
         <item>GENAP - 2012/2013</item>
-        <item>GANJIL - 2013/2014</item>
+        <!--<item>GANJIL - 2013/2014</item>-->
     </string-array>
+
 
     <string name="title_keuangan_fragment">Keuangan</string>
     <string name="title_jadwal_fragment">Jadwal</string>
