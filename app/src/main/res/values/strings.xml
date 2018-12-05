@@ -61,6 +61,11 @@
         <item>pdf/panduan_blog.pdf</item>
         <item>pdf/panduan_ikad.pdf</item>
     </string-array>
+    <string name="label_belum_isi_frs">Anda belum mengisi FRS</string>
+    <string name="label_perwalian">Perwalian Genap 2018/2019</string>
+    <string name="label_jadwal_berwalian">Jadwal Perwalian</string>
+    <string name="label_date_perwalian">15 Oktober</string>
+    <string name="label_finish_perwalian">Perwalian berakhir</string>
 
     <!--Hasil Studi-->
     <string name="title_hasil_studi_fragment">Hasil Studi</string>

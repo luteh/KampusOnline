@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvBelumIsiFrs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_belum_isi_frs"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="@dimen/text_default"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPerwalian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
+        android:text="@string/label_perwalian"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_default"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvJadwalPerwalian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
+        android:text="@string/label_jadwal_berwalian"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_default_16" />
+
+    <TextView
+        android:id="@+id/tvDatePerwalian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
+        android:text="@string/label_date_perwalian"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_default_16" />
+
+    <TextView
+        android:id="@+id/tvFinishPerwalian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
+        android:text="@string/label_finish_perwalian"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_default_16" />
+</LinearLayout>
