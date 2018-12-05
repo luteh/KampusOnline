@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.presenter.dashboardactivity;
+package com.luteh.kampusonline.ui.activities.dashboard;
 
 import com.luteh.kampusonline.model.User;
 

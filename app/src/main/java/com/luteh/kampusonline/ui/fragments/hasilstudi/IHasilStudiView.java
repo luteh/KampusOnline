@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.view;
+package com.luteh.kampusonline.ui.fragments.hasilstudi;
 
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 

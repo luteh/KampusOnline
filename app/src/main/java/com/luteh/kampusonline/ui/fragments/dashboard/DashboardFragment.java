@@ -1,7 +1,6 @@
-package com.luteh.kampusonline.ui.fragments;
+package com.luteh.kampusonline.ui.fragments.dashboard;
 
 
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 
@@ -9,23 +8,24 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.barteksc.pdfviewer.PDFView;
 import com.luteh.kampusonline.adapter.DashboardAdapter;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.adapter.ItemClicked;
 import com.luteh.kampusonline.common.AppConstant;
-import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.ui.activities.PDFActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import butterknife.BindArray;
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 
 /**
@@ -47,6 +47,8 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
     @BindArray(R.array.pdf_items)
     String[] pdfItems;
 
+    private static final String TAG = DashboardFragment.class.getSimpleName();
+
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -64,6 +66,10 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
         super.onInit();
         initRecyclerView();
         bundle = new Bundle();
+
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Log.i(TAG, simpleDateFormat.format(date));
     }
 
     private void initRecyclerView() {
@@ -98,7 +104,7 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
             case 3:
                 bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
                 getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);
-                 break;
+                break;
             case 4:
                 bundle.putString(AppConstant.KEY_PDF_ASSET, pdfItems[position]);
                 getBaseActivity().startActivityWithFade(PDFActivity.class, bundle);

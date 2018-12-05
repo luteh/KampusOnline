@@ -1,10 +1,9 @@
-package com.luteh.kampusonline.ui.fragments;
+package com.luteh.kampusonline.ui.fragments.hasilstudi;
 
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -18,14 +17,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.luteh.kampusonline.R;
-import com.luteh.kampusonline.adapter.DashboardAdapter;
 import com.luteh.kampusonline.adapter.HasilStudiAdapter;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
-import com.luteh.kampusonline.presenter.hasilstudi.HasilStudiPresenterImp;
-import com.luteh.kampusonline.presenter.hasilstudi.IHasilStudiPresenter;
-import com.luteh.kampusonline.view.IHasilStudiView;
 
 import java.util.List;
 

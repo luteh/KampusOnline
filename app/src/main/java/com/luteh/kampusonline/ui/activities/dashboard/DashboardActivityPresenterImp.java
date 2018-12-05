@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.presenter.dashboardactivity;
+package com.luteh.kampusonline.ui.activities.dashboard;
 
 import android.content.Context;
 import android.net.Uri;
@@ -13,9 +13,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.model.User;
-import com.luteh.kampusonline.view.IDashboardActivityView;
 
 import androidx.annotation.NonNull;
 

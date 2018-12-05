@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.presenter.login;
+package com.luteh.kampusonline.ui.activities.login;
 
 import com.luteh.kampusonline.model.User;
 

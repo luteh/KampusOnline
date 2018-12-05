@@ -1,7 +1,7 @@
-package com.luteh.kampusonline.presenter.login;
+package com.luteh.kampusonline.ui.activities.login;
 
 import android.content.Context;
-import android.os.Handler;
+
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -10,7 +10,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.model.login.LoginRequest;
-import com.luteh.kampusonline.view.ILoginView;
 
 /**
  * Created by Luthfan Maftuh on 12/11/2018.

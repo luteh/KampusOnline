@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.presenter.hasilstudi;
+package com.luteh.kampusonline.ui.fragments.hasilstudi;
 
 /**
  * Created by Luthfan Maftuh on 25/11/2018.

@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.ui.activities;
+package com.luteh.kampusonline.ui.activities.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,13 +19,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.common.AppConstant;
 import com.luteh.kampusonline.common.util.HeaderViewHolder;
 import com.luteh.kampusonline.model.User;
-import com.luteh.kampusonline.presenter.dashboardactivity.DashboardActivityPresenterImp;
-import com.luteh.kampusonline.presenter.dashboardactivity.IDashboardActivityPresenter;
-import com.luteh.kampusonline.ui.fragments.DashboardFragment;
-import com.luteh.kampusonline.ui.fragments.HasilStudiFragment;
+import com.luteh.kampusonline.ui.activities.login.LoginActivity;
+import com.luteh.kampusonline.ui.fragments.dashboard.DashboardFragment;
+import com.luteh.kampusonline.ui.fragments.hasilstudi.HasilStudiFragment;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
-import com.luteh.kampusonline.view.IDashboardActivityView;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;

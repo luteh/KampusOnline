@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.presenter.hasilstudi;
+package com.luteh.kampusonline.ui.fragments.hasilstudi;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,7 +10,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
-import com.luteh.kampusonline.view.IHasilStudiView;
 
 import java.util.ArrayList;
 import java.util.List;

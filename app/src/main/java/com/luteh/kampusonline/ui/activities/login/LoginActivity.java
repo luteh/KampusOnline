@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.ui.activities;
+package com.luteh.kampusonline.ui.activities.login;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -13,12 +13,9 @@ import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.AppConstant;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseActivity;
-import com.luteh.kampusonline.presenter.login.ILoginPresenter;
-import com.luteh.kampusonline.presenter.login.LoginPresenterImp;
-import com.luteh.kampusonline.view.ILoginView;
+import com.luteh.kampusonline.ui.activities.dashboard.DashboardActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnTouch;
 

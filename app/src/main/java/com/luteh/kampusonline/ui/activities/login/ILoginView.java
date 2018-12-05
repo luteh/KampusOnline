@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.view;
+package com.luteh.kampusonline.ui.activities.login;
 
 import com.google.firebase.auth.FirebaseUser;
 
