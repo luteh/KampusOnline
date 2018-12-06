@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class JatuhTempoDate {
     public Date startDate, lastDate;
+    public String semester;
 
 
 }

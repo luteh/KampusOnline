@@ -50,8 +50,6 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
-    @BindString(R.string.label_perwalian)
-    String labelPerwalian;
     @BindString(R.string.label_jadwal_berwalian)
     String labelJadwalPerwalian;
 
@@ -178,22 +176,25 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         int currentDate = (int) (today.getTime() / MAGIC);
         int lastDate = (int) (jatuhTempoDateList.get(0).lastDate.getTime() / MAGIC);
         int differenceDate = lastDate - currentDate;
+
         if (!Common.isFrsDialogShowed &&
                 currentDate < lastDate) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             final PrettyDialog prettyDialog = new PrettyDialog(this);
             prettyDialog.setTitle(getResources().getText(R.string.label_belum_isi_frs).toString())
                     .setTitleColor(R.color.pdlg_color_red)
-                    .setMessage(new StringBuilder().append(labelPerwalian)
-                            .append("\n")
-                            .append(labelJadwalPerwalian)
-                            .append("\n")
-                            .append(simpleDateFormat.format(jatuhTempoDateList.get(0).startDate))
-                            .append(" s/d ")
-                            .append(simpleDateFormat.format(jatuhTempoDateList.get(0).lastDate))
-                            .append("\n")
-                            .append(String.format("Perwalian akan berakhir %d hari lagi !", differenceDate + 1))
-                            .toString())
+                    .setMessage(
+                            new StringBuilder()
+                                    .append(labelJadwalPerwalian)
+                                    .append("\n")
+                                    .append(String.format("Semester %s", jatuhTempoDateList.get(0).semester))
+                                    .append("\n")
+                                    .append(simpleDateFormat.format(jatuhTempoDateList.get(0).startDate))
+                                    .append(" s/d ")
+                                    .append(simpleDateFormat.format(jatuhTempoDateList.get(0).lastDate))
+                                    .append("\n")
+                                    .append(String.format("Perwalian akan berakhir %d hari lagi !", differenceDate + 1))
+                                    .toString())
                     .setMessageColor(R.color.pdlg_color_black)
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.pdlg_color_green)
