@@ -66,10 +66,6 @@ public class DashboardFragment extends BaseFragment implements ItemClicked {
         super.onInit();
         initRecyclerView();
         bundle = new Bundle();
-
-        Date date = Calendar.getInstance().getTime();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Log.i(TAG, simpleDateFormat.format(date));
     }
 
     private void initRecyclerView() {

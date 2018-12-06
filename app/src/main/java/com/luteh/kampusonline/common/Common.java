@@ -25,6 +25,8 @@ public class Common {
     private static AlertDialog dialog;
     private static android.app.AlertDialog waitingDialog;
 
+    public static boolean isFrsDialogShowed = false;
+
     public static void showProgressBar(Context context) {
         builder = new AlertDialog.Builder(context);
         builder.setCancelable(false); // if you want user to wait for some process to finish,

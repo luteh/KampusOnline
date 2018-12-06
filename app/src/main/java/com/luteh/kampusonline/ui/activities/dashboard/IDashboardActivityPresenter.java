@@ -13,4 +13,7 @@ public interface IDashboardActivityPresenter {
      */
     void getUserInfo(String uid);
 
+    void getJatuhTempoDate();
+
+    void onDestroy();
 }

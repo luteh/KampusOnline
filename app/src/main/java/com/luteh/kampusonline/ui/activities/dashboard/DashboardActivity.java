@@ -3,21 +3,26 @@ package com.luteh.kampusonline.ui.activities.dashboard;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.common.AppConstant;
+import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.util.HeaderViewHolder;
+import com.luteh.kampusonline.model.JatuhTempoDate;
 import com.luteh.kampusonline.model.User;
 import com.luteh.kampusonline.ui.activities.login.LoginActivity;
 import com.luteh.kampusonline.ui.fragments.dashboard.DashboardFragment;
@@ -26,7 +31,15 @@ import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import butterknife.BindString;
 import butterknife.BindView;
+import libs.mjn.prettydialog.PrettyDialog;
+import libs.mjn.prettydialog.PrettyDialogCallback;
 
 public class DashboardActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IDashboardActivityView {
 
@@ -36,6 +49,11 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
     DrawerLayout drawer;
     @BindView(R.id.nav_view)
     NavigationView navigationView;
+
+    @BindString(R.string.label_perwalian)
+    String labelPerwalian;
+    @BindString(R.string.label_jadwal_berwalian)
+    String labelJadwalPerwalian;
 
     private FirebaseAuth mAuth;
 
@@ -68,6 +86,8 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         iDashboardActivityPresenter.getUserInfo(bundle.getString(AppConstant.KEY_UID));
+
+        iDashboardActivityPresenter.getJatuhTempoDate();
     }
 
     @Override
@@ -94,6 +114,8 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                 mAuth.signOut();
                 FirebaseUser user = mAuth.getCurrentUser();
                 updateUI(user);
+
+                Common.isFrsDialogShowed = false;
                 break;
         }
 
@@ -147,5 +169,67 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
             headerViewHolder.tvProfileName.setText(user.getName());
             headerViewHolder.tvProfileNpm.setText(user.getNpm());
         }
+    }
+
+    @Override
+    public void showJatuhTempoDialog(List<JatuhTempoDate> jatuhTempoDateList) {
+        long MAGIC = 86400000L;
+        Date today = Calendar.getInstance().getTime();
+        int currentDate = (int) (today.getTime() / MAGIC);
+        int lastDate = (int) (jatuhTempoDateList.get(0).lastDate.getTime() / MAGIC);
+        int differenceDate = lastDate - currentDate;
+        if (!Common.isFrsDialogShowed &&
+                currentDate < lastDate) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            final PrettyDialog prettyDialog = new PrettyDialog(this);
+            prettyDialog.setTitle(getResources().getText(R.string.label_belum_isi_frs).toString())
+                    .setTitleColor(R.color.pdlg_color_red)
+                    .setMessage(new StringBuilder().append(labelPerwalian)
+                            .append("\n")
+                            .append(labelJadwalPerwalian)
+                            .append("\n")
+                            .append(simpleDateFormat.format(jatuhTempoDateList.get(0).startDate))
+                            .append(" s/d ")
+                            .append(simpleDateFormat.format(jatuhTempoDateList.get(0).lastDate))
+                            .append("\n")
+                            .append(String.format("Perwalian akan berakhir %d hari lagi !", differenceDate + 1))
+                            .toString())
+                    .setMessageColor(R.color.pdlg_color_black)
+                    .setIcon(R.drawable.pdlg_icon_info)
+                    .setIconTint(R.color.pdlg_color_green)
+                    .addButton(
+                            "Isi FRS",
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_green, new PrettyDialogCallback() {
+                                @Override
+                                public void onClick() {
+
+                                }
+                            })
+                    .addButton(
+                            "Cancel",
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_red,
+                            new PrettyDialogCallback() {
+                                @Override
+                                public void onClick() {
+                                    // Dismiss
+                                    prettyDialog.dismiss();
+                                }
+                            }
+                    )
+                    .setGravity(Gravity.CENTER)
+                    .setAnimationEnabled(true)
+                    .show();
+            prettyDialog.setCancelable(false);
+
+            Common.isFrsDialogShowed = true;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        iDashboardActivityPresenter.onDestroy();
     }
 }
