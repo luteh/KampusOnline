@@ -11,15 +11,15 @@ public class JatuhTempoDate {
     public Date startDate, lastDate;
     public String semester;
 
-    private long  oneDayOnMillisecond = 86400000L;
+    private long oneDayInMillisecond = 86400000L;
 
     public int getCurrentDate(){
         Date today = Calendar.getInstance().getTime();
-        return (int) (today.getTime() / oneDayOnMillisecond);
+        return (int) (today.getTime() / oneDayInMillisecond);
     }
 
     public int getLastDate(){
-        return (int) (lastDate.getTime() / oneDayOnMillisecond);
+        return (int) (lastDate.getTime() / oneDayInMillisecond);
     }
 
     public int getDifferenceDate(){
