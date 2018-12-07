@@ -84,12 +84,6 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
 
     @Override
     public void showHasilStudi(List<HasilStudi> hasilStudiList) {
-        Log.i(TAG, hasilStudiList.size() + "");
-        for (HasilStudi hasilStudi : hasilStudiList) {
-            Log.i(TAG, hasilStudi.mata_kuliah);
-        }
-
-        // specify an adapter (see also next example)
         mAdapter = new HasilStudiAdapter(hasilStudiList);
         mAdapter.notifyDataSetChanged();
         rvHasilStudi.setAdapter(mAdapter);

@@ -30,6 +30,5 @@ public class HasilStudiViewHolder extends RecyclerView.ViewHolder {
     public HasilStudiViewHolder(@NonNull View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
-
     }
 }
