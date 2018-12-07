@@ -170,15 +170,9 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
     }
 
     @Override
-    public void showJatuhTempoDialog(List<JatuhTempoDate> jatuhTempoDateList) {
-        long MAGIC = 86400000L;
-        Date today = Calendar.getInstance().getTime();
-        int currentDate = (int) (today.getTime() / MAGIC);
-        int lastDate = (int) (jatuhTempoDateList.get(0).lastDate.getTime() / MAGIC);
-        int differenceDate = lastDate - currentDate;
-
+    public void showJatuhTempoDialog(JatuhTempoDate jatuhTempoDate) {
         if (!Common.isFrsDialogShowed &&
-                currentDate < lastDate) {
+                jatuhTempoDate.getCurrentDate() < jatuhTempoDate.getLastDate()) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             final PrettyDialog prettyDialog = new PrettyDialog(this);
             prettyDialog.setTitle(getResources().getText(R.string.label_belum_isi_frs).toString())
@@ -187,13 +181,13 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                             new StringBuilder()
                                     .append(labelJadwalPerwalian)
                                     .append("\n")
-                                    .append(String.format("Semester %s", jatuhTempoDateList.get(0).semester))
+                                    .append(String.format("Semester %s", jatuhTempoDate.semester))
                                     .append("\n")
-                                    .append(simpleDateFormat.format(jatuhTempoDateList.get(0).startDate))
+                                    .append(simpleDateFormat.format(jatuhTempoDate.startDate))
                                     .append(" s/d ")
-                                    .append(simpleDateFormat.format(jatuhTempoDateList.get(0).lastDate))
+                                    .append(simpleDateFormat.format(jatuhTempoDate.lastDate))
                                     .append("\n")
-                                    .append(String.format("Perwalian akan berakhir %d hari lagi !", differenceDate + 1))
+                                    .append(String.format("Perwalian akan berakhir %d hari lagi !", jatuhTempoDate.getDifferenceDate() + 1))
                                     .toString())
                     .setMessageColor(R.color.pdlg_color_black)
                     .setIcon(R.drawable.pdlg_icon_info)
@@ -224,7 +218,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                     .show();
             prettyDialog.setCancelable(false);
 
-            Common.isFrsDialogShowed = true;
+//            Common.isFrsDialogShowed = true;
         }
     }
 

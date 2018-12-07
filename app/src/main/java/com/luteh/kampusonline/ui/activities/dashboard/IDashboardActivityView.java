@@ -16,5 +16,5 @@ public interface IDashboardActivityView {
      */
     void onRetrieveUserInfoSuccess(User user);
 
-    void showJatuhTempoDialog(List<JatuhTempoDate> jatuhTempoDateList);
+    void showJatuhTempoDialog(JatuhTempoDate jatuhTempoDate);
 }

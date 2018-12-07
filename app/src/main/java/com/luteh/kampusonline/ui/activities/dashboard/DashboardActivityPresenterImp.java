@@ -60,10 +60,7 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        User user1 = new User(document.get("name").toString(),
-                                document.get("npm").toString(),
-                                document.get("fakultas").toString(),
-                                document.get("jurusan").toString());
+                        User user1 = document.toObject(User.class);
                         iDashboardActivityView.onRetrieveUserInfoSuccess(user1);
                     } else {
                         Log.d(TAG, "No such document");
@@ -98,11 +95,10 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
                 getJatuhTempoLastDate()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<List<JatuhTempoDate>>() {
+                        .subscribeWith(new DisposableSingleObserver<JatuhTempoDate>() {
                             @Override
-                            public void onSuccess(List<JatuhTempoDate> jatuhTempoDates) {
+                            public void onSuccess(JatuhTempoDate jatuhTempoDates) {
                                 iDashboardActivityView.showJatuhTempoDialog(jatuhTempoDates);
-                                Log.d(TAG, "onSuccess: " + jatuhTempoDates.get(0).startDate);
                             }
 
                             @Override
@@ -113,17 +109,11 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
         );
     }
 
-    @Override
-    public void onDestroy() {
-        disposable.dispose();
-    }
-
-    private Single<List<JatuhTempoDate>> getJatuhTempoLastDate() {
-        return Single.create(new SingleOnSubscribe<List<JatuhTempoDate>>() {
+    private Single<JatuhTempoDate> getJatuhTempoLastDate() {
+        return Single.create(new SingleOnSubscribe<JatuhTempoDate>() {
 
             @Override
-            public void subscribe(final SingleEmitter<List<JatuhTempoDate>> emitter) throws Exception {
-                final List<JatuhTempoDate> jatuhTempoDateList = new ArrayList<>();
+            public void subscribe(final SingleEmitter<JatuhTempoDate> emitter) throws Exception {
                 final DocumentReference docRef = FirebaseFirestore.getInstance()
                         .collection("jatuh_tempo_frs")
                         .document("2012");
@@ -134,9 +124,8 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
                                 if (task.isSuccessful()) {
                                     DocumentSnapshot document = task.getResult();
                                     if (document.exists()) {
-                                        jatuhTempoDateList.add(document.toObject(JatuhTempoDate.class));
-                                        Log.d(TAG, jatuhTempoDateList.size() + "");
-                                        emitter.onSuccess(jatuhTempoDateList);
+                                        JatuhTempoDate jatuhTempoDate = document.toObject(JatuhTempoDate.class);
+                                        emitter.onSuccess(jatuhTempoDate);
                                     } else {
                                         Log.d(TAG, "No such document");
                                     }
@@ -147,5 +136,10 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
                         });
             }
         });
+    }
+
+    @Override
+    public void onDestroy() {
+        disposable.dispose();
     }
 }
