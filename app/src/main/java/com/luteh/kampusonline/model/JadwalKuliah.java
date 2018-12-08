@@ -7,9 +7,10 @@ import com.google.gson.annotations.SerializedName;
  * Email luthfanmaftuh@gmail.com
  */
 public class JadwalKuliah {
+    public String no;
     public String kode;
-    public String mata_kuliah;
-    public String nilai;
+    @SerializedName("mata_kuliah")
+    public String mataKuliah;
     public String sks;
     public String dosen;
     public String kelas;

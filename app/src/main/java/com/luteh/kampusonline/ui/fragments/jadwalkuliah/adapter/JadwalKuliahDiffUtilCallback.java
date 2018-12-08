@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.ui.fragments.jadwalkuliah;
+package com.luteh.kampusonline.ui.fragments.jadwalkuliah.adapter;
 
 import com.luteh.kampusonline.model.JadwalKuliah;
 
