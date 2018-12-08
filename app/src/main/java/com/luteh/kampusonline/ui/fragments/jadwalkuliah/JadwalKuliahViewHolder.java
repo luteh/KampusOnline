@@ -37,7 +37,6 @@ public class JadwalKuliahViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.tvJadwalKuliahFinishClass)
     TextView tvJadwalKuliahFinishClass;
 
-
     public JadwalKuliahViewHolder(@NonNull View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
