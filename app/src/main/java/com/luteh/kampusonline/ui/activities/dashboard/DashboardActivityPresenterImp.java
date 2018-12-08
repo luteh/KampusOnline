@@ -11,26 +11,22 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.core.FirestoreClient;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.model.JatuhTempoDate;
 import com.luteh.kampusonline.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
+import durdinapps.rxfirebase2.RxFirestore;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
@@ -49,6 +45,37 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
     public DashboardActivityPresenterImp(Context context, IDashboardActivityView iDashboardActivityView) {
         this.context = context;
         this.iDashboardActivityView = iDashboardActivityView;
+    }
+
+    @Override
+    public void onInit() {
+        retrieveSemesterListData();
+    }
+
+    private void retrieveSemesterListData() {
+        DocumentReference document = FirebaseFirestore.getInstance().collection("semester_list").document(Common.currentUID);
+        RxFirestore.observeDocumentRef(document)
+                .observeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<DocumentSnapshot>() {
+                    @Override
+                    public void accept(DocumentSnapshot documentSnapshot) throws Exception {
+                        List<String> list = (List<String>) documentSnapshot.get("semester_list");
+//                        Common.semesterLists.addAll((Collection) documentSnapshot.get("semester_list"));
+                        setSemesterLists(list);
+                    }
+                });
+    }
+
+    private void setSemesterLists(List<String> list) {
+        Common.semesterLists.addAll(list);
+
+        for (String stringLists : list) {
+            Common.semesterListCollectionNames.add(
+                    stringLists.replace(" ", "_")
+                            .replace("/", "-")
+                            .toLowerCase());
+        }
     }
 
     @Override
@@ -88,6 +115,7 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
 
 
     }
+
 
     @Override
     public void getJatuhTempoDate() {

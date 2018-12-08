@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.luteh.kampusonline.R;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Luthfan Maftuh on 08/11/2018.
  * Email luthfanmaftuh@gmail.com
@@ -20,6 +23,8 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 public class Common {
 
     public static String currentUID = null;
+    public static List<String> semesterLists = new ArrayList<>();
+    public static List<String> semesterListCollectionNames = new ArrayList<>();
 
     private static AlertDialog.Builder builder;
     private static AlertDialog dialog;

@@ -3,7 +3,6 @@ package com.luteh.kampusonline.ui.activities.dashboard;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -14,7 +13,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,9 +30,6 @@ import com.luteh.kampusonline.common.base.BaseActivity;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -81,6 +76,8 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
         super.onInit();
         iDashboardActivityPresenter = new DashboardActivityPresenterImp(this, this);
 
+        iDashboardActivityPresenter.onInit();
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         iDashboardActivityPresenter.getUserInfo(bundle.getString(AppConstant.KEY_UID));
@@ -114,6 +111,8 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                 updateUI(user);
 
                 Common.isFrsDialogShowed = false;
+                Common.semesterLists.clear();
+                Common.semesterListCollectionNames.clear();
                 break;
         }
 
