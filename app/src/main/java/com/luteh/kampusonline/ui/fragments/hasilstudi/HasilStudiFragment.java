@@ -61,14 +61,11 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
             rvHasilStudi.setLayoutManager(new LinearLayoutManager(context, RecyclerView.VERTICAL, false));
         }
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
-                R.array.label_semester_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, Common.semesterLists);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         semesterSpinner.setAdapter(adapter);
 
         semesterSpinner.setOnItemSelectedListener(this);
-
-
     }
 
     @Override

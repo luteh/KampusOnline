@@ -35,15 +35,15 @@ public class HasilStudiPresenterImp implements IHasilStudiPresenter {
     public void getHasilStudi(int spinnerPosition) {
         switch (spinnerPosition) {
             case 0:
-                queryHasilStudiData("ganjil_2012");
+                retrieveHasilStudiData("ganjil_2012");
                 break;
             case 1:
-                queryHasilStudiData("genap_2013");
+                retrieveHasilStudiData("genap_2013");
                 break;
         }
     }
 
-    private void queryHasilStudiData(String targetCollection) {
+    private void retrieveHasilStudiData(String targetCollection) {
         final List<HasilStudi> hasilStudis = new ArrayList<>();
         db.collection("hasil_studi")
                 .document(Common.currentUID)

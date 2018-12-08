@@ -171,7 +171,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
     @Override
     public void showJatuhTempoDialog(JatuhTempoDate jatuhTempoDate) {
         if (!Common.isFrsDialogShowed &&
-                jatuhTempoDate.getCurrentDate() < jatuhTempoDate.getLastDate()) {
+                jatuhTempoDate.getCurrentDate() <= jatuhTempoDate.getLastDate()) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             final PrettyDialog prettyDialog = new PrettyDialog(this);
             prettyDialog.setTitle(getResources().getText(R.string.label_belum_isi_frs).toString())

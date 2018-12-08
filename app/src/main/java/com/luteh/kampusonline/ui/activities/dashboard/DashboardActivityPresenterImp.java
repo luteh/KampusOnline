@@ -8,6 +8,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -17,16 +20,23 @@ import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.model.JatuhTempoDate;
 import com.luteh.kampusonline.model.User;
 
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import durdinapps.rxfirebase2.RxFirebaseDatabase;
 import durdinapps.rxfirebase2.RxFirestore;
+import io.reactivex.MaybeObserver;
 import io.reactivex.Single;
 import io.reactivex.SingleEmitter;
 import io.reactivex.SingleOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
@@ -53,23 +63,26 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
     }
 
     private void retrieveSemesterListData() {
-        DocumentReference document = FirebaseFirestore.getInstance().collection("semester_list").document(Common.currentUID);
-        RxFirestore.observeDocumentRef(document)
+        DatabaseReference databaseReference =
+                FirebaseDatabase.getInstance().getReference()
+                        .child("semester_list")
+                        .child(Common.currentUID)
+                        .child("semester_list");
+
+        RxFirebaseDatabase.observeSingleValueEvent(databaseReference,
+                dataSnapshot -> {
+                    List<String> list = (List<String>) dataSnapshot.getValue();
+                    return list;
+                })
+                .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<DocumentSnapshot>() {
-                    @Override
-                    public void accept(DocumentSnapshot documentSnapshot) throws Exception {
-                        List<String> list = (List<String>) documentSnapshot.get("semester_list");
-//                        Common.semesterLists.addAll((Collection) documentSnapshot.get("semester_list"));
-                        setSemesterLists(list);
-                    }
+                .subscribe(list -> {
+                    setSemesterLists(list);
                 });
     }
 
     private void setSemesterLists(List<String> list) {
         Common.semesterLists.addAll(list);
-
         for (String stringLists : list) {
             Common.semesterListCollectionNames.add(
                     stringLists.replace(" ", "_")
