@@ -54,7 +54,6 @@ public class HasilStudiPresenterImp implements IHasilStudiPresenter {
                     public void onComplete(Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.i(TAG, document.getId() + " => " + document.getData());
                                 hasilStudis.add(document.toObject(HasilStudi.class));
                             }
                         } else {

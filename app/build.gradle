@@ -83,6 +83,9 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
 
+    // Rx2Firebase
+    implementation 'com.github.FrangSierra:RxFirebase:1.5.6'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
