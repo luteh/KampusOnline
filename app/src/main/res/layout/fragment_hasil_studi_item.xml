@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="100">
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/tvNumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:layout_weight="7"
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_small_14"
@@ -20,7 +19,7 @@
         android:id="@+id/tvKode"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="20"
+        android:layout_weight="25"
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_small_14"
@@ -30,7 +29,7 @@
         android:id="@+id/tvMataKuliah"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="55"
+        android:layout_weight="50"
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_small_14"
         tools:text="Mata Kuliah" />

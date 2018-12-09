@@ -12,7 +12,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/margin_default"
+        android:paddingBottom="@dimen/margin_default">
 
         <TextView
             android:id="@+id/tvJadwalKuliahNo"
@@ -20,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.5"
+            android:gravity="center"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_small_14"
             tools:text="1" />
@@ -44,6 +47,7 @@
                 android:id="@+id/tvJadwalKuliahDosen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_small_14"
                 tools:text="Lia Maulia Indrayani, DR. Hj., Dra., M.Hum." />
@@ -51,6 +55,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
                 android:orientation="horizontal">
 
                 <TextView
@@ -59,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_14"
+                    android:textSize="@dimen/text_small_12"
                     tools:text="0611204" />
 
                 <TextView
@@ -69,7 +74,7 @@
                     android:layout_weight="1"
 
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_14"
+                    android:textSize="@dimen/text_small_12"
                     tools:text="2 SKS" />
 
                 <TextView
@@ -79,7 +84,7 @@
 
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_14"
+                    android:textSize="@dimen/text_small_12"
                     tools:text="Kelas A" />
 
                 <TextView
@@ -89,7 +94,7 @@
                     android:layout_weight="1"
 
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_14"
+                    android:textSize="@dimen/text_small_12"
                     tools:text="B409" />
             </LinearLayout>
 
@@ -114,6 +119,7 @@
                 android:id="@+id/tvJadwalKuliahStartClass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_small_14"
                 tools:text="08.50" />
@@ -122,6 +128,7 @@
                 android:id="@+id/tvJadwalKuliahFinishClass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_small_14"
                 tools:text="10.30" />

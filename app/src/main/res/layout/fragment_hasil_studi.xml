@@ -41,13 +41,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="100">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="5"
+                    android:layout_weight="7"
                     android:gravity="center"
                     android:text="@string/label_number"
                     android:textColor="@android:color/black"
@@ -57,7 +56,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="20"
+                    android:layout_weight="25"
                     android:gravity="center"
                     android:text="@string/label_kode"
                     android:textColor="@android:color/black"
@@ -67,7 +66,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="55"
+                    android:layout_weight="50"
                     android:gravity="center"
                     android:text="@string/label_mata_kuliah"
                     android:textColor="@android:color/black"

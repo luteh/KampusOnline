@@ -27,5 +27,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJadwalKuliah"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default" />
 </LinearLayout>
