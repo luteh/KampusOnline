@@ -5,6 +5,9 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -13,6 +16,10 @@ import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import durdinapps.rxfirebase2.RxFirebaseDatabase;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Luthfan Maftuh on 25/11/2018.
@@ -33,34 +40,28 @@ public class HasilStudiPresenterImp implements IHasilStudiPresenter {
 
     @Override
     public void getHasilStudi(int spinnerPosition) {
-        switch (spinnerPosition) {
-            case 0:
-                retrieveHasilStudiData("ganjil_2012");
-                break;
-            case 1:
-                retrieveHasilStudiData("genap_2013");
-                break;
-        }
+        retrieveHasilStudiData(Common.semesterListCollectionNames.get(spinnerPosition));
     }
 
-    private void retrieveHasilStudiData(String targetCollection) {
-        final List<HasilStudi> hasilStudis = new ArrayList<>();
-        db.collection("hasil_studi")
-                .document(Common.currentUID)
-                .collection(targetCollection)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                hasilStudis.add(document.toObject(HasilStudi.class));
-                            }
-                        } else {
-                            Log.e(TAG, "Error getting documents: ", task.getException());
-                        }
-                        iHasilStudiView.showHasilStudi(hasilStudis);
+    private void retrieveHasilStudiData(String childSemester) {
+        DatabaseReference databaseReference =
+                FirebaseDatabase.getInstance().getReference()
+                        .child("hasil_studi")
+                        .child(Common.currentUID)
+                        .child(childSemester);
+
+        RxFirebaseDatabase.observeSingleValueEvent(databaseReference,
+                dataSnapshot -> {
+                    List<HasilStudi> hasilStudiList = new ArrayList<>();
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        hasilStudiList.add(postSnapshot.getValue(HasilStudi.class));
                     }
+                    return hasilStudiList;
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(hasilStudiList -> {
+                    iHasilStudiView.showHasilStudi(hasilStudiList);
                 });
     }
 }

@@ -25,6 +25,7 @@ import org.reactivestreams.Subscription;
 
 import java.util.List;
 
+import androidx.annotation.CheckResult;
 import androidx.annotation.NonNull;
 import durdinapps.rxfirebase2.RxFirebaseDatabase;
 import durdinapps.rxfirebase2.RxFirestore;
