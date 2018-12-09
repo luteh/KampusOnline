@@ -77,6 +77,8 @@
         <!--<item>GANJIL - 2013/2014</item>-->
     </string-array>
 
+    <!--Jadwal Kuliah-->
+    <string name="title_jadwal_kuliah_fragment">Jadwal Kuliah</string>
 
     <string name="title_keuangan_fragment">Keuangan</string>
     <string name="title_jadwal_fragment">Jadwal</string>

@@ -1,5 +1,6 @@
 package com.luteh.kampusonline.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -9,15 +10,12 @@ import com.google.gson.annotations.SerializedName;
 public class JadwalKuliah {
     public String no;
     public String kode;
-    @SerializedName("mata_kuliah")
-    public String mataKuliah;
+    public String mata_kuliah;
     public String sks;
     public String dosen;
     public String kelas;
     public String ruangan;
     public String hari;
-    @SerializedName("start_class")
-    public String startClass;
-    @SerializedName("finish_class")
-    public String finishClass;
+    public String start_class;
+    public String finish_class;
 }

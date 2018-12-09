@@ -27,22 +27,22 @@ public class JadwalKuliahAdapter extends RecyclerView.Adapter<JadwalKuliahViewHo
     @Override
     public JadwalKuliahViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new JadwalKuliahViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_hasil_studi_item, parent, false)
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_jadwal_kuliah_item, parent, false)
         );
     }
 
     @Override
     public void onBindViewHolder(@NonNull JadwalKuliahViewHolder holder, int position) {
         holder.tvJadwalKuliahNo.setText(jadwalKuliahList.get(position).no);
-        holder.tvJadwalKuliahMatkul.setText(jadwalKuliahList.get(position).mataKuliah);
+        holder.tvJadwalKuliahMatkul.setText(jadwalKuliahList.get(position).mata_kuliah);
         holder.tvJadwalKuliahDosen.setText(jadwalKuliahList.get(position).dosen);
         holder.tvJadwalKuliahKode.setText(jadwalKuliahList.get(position).kode);
-        holder.tvJadwalKuliahKelas.setText(jadwalKuliahList.get(position).kelas);
+        holder.tvJadwalKuliahKelas.setText(String.format("Kelas %s", jadwalKuliahList.get(position).kelas));
         holder.tvJadwalKuliahRuangan.setText(jadwalKuliahList.get(position).ruangan);
-        holder.tvJadwalKuliahSks.setText(jadwalKuliahList.get(position).sks);
+        holder.tvJadwalKuliahSks.setText(String.format("%s SKS", jadwalKuliahList.get(position).sks));
         holder.tvJadwalKuliahHari.setText(jadwalKuliahList.get(position).hari);
-        holder.tvJadwalKuliahStartClass.setText(jadwalKuliahList.get(position).startClass);
-        holder.tvJadwalKuliahFinishClass.setText(jadwalKuliahList.get(position).finishClass);
+        holder.tvJadwalKuliahStartClass.setText(jadwalKuliahList.get(position).start_class);
+        holder.tvJadwalKuliahFinishClass.setText(jadwalKuliahList.get(position).finish_class);
     }
 
     @Override

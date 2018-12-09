@@ -28,7 +28,6 @@ import io.reactivex.schedulers.Schedulers;
 public class HasilStudiPresenterImp implements IHasilStudiPresenter {
 
     private static final String TAG = "Hasil_Studi";
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private Context context;
     private IHasilStudiView iHasilStudiView;
