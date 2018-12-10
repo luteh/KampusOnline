@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.ui.fragments.jadwalkuliah;
+package com.luteh.kampusonline.ui.fragments.jadwal.kuliah;
 
 /**
  * Created by Luthfan Maftuh on 09/12/2018.

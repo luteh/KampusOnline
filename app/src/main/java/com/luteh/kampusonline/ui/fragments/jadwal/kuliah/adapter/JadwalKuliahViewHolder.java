@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.ui.fragments.jadwalkuliah.adapter;
+package com.luteh.kampusonline.ui.fragments.jadwal.kuliah.adapter;
 
 import android.view.View;
 import android.widget.TextView;

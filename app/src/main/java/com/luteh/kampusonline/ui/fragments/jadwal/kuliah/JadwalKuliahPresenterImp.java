@@ -1,11 +1,10 @@
-package com.luteh.kampusonline.ui.fragments.jadwalkuliah;
+package com.luteh.kampusonline.ui.fragments.jadwal.kuliah;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.model.JadwalKuliah;
-import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 
 import java.util.ArrayList;
 import java.util.List;

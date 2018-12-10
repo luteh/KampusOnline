@@ -78,10 +78,13 @@
     </string-array>
 
     <!--Jadwal Kuliah-->
-    <string name="title_jadwal_kuliah_fragment">Jadwal Kuliah</string>
+    <string name="title_jadwal_fragment">Jadwal</string>
+    <string name="title_kuliah_fragment">Kuliah</string>
+    <string name="title_ujian_fragment">Ujian</string>
+    <string name="title_penggangti_fragment">Pengganti</string>
+    <string name="title_susulan_fragment">Susulan</string>
 
     <string name="title_keuangan_fragment">Keuangan</string>
-    <string name="title_jadwal_fragment">Jadwal</string>
     <string name="title_rencana_studi_fragment">Rencana Studi</string>
 
     <string name="title_message_loading">Loading . . .</string>

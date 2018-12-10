@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.ui.fragments.jadwalkuliah;
+package com.luteh.kampusonline.ui.fragments.jadwal.kuliah;
 
 
 import android.os.Bundle;
@@ -11,11 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.luteh.kampusonline.R;
-import com.luteh.kampusonline.adapter.HasilStudiAdapter;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.JadwalKuliah;
-import com.luteh.kampusonline.ui.fragments.jadwalkuliah.adapter.JadwalKuliahAdapter;
+import com.luteh.kampusonline.ui.fragments.jadwal.kuliah.adapter.JadwalKuliahAdapter;
 
 import java.util.List;
 

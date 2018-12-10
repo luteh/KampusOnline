@@ -1,7 +1,6 @@
-package com.luteh.kampusonline.ui.fragments.jadwalkuliah;
+package com.luteh.kampusonline.ui.fragments.jadwal.kuliah;
 
 import com.luteh.kampusonline.model.JadwalKuliah;
-import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 
 import java.util.List;
 
