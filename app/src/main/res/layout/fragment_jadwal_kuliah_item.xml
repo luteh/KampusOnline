@@ -36,20 +36,17 @@
 
             <TextView
                 android:id="@+id/tvJadwalKuliahMatkul"
+                style="@style/TextDefaultBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/text_small_14"
-                android:textStyle="bold"
                 tools:text="Manajemen Perusahaan Industri" />
 
             <TextView
                 android:id="@+id/tvJadwalKuliahDosen"
+                style="@style/TextDefault"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/text_small_14"
                 tools:text="Lia Maulia Indrayani, DR. Hj., Dra., M.Hum." />
 
             <LinearLayout
@@ -63,8 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_12"
+                    style="@style/TextSmall"
                     tools:text="0611204" />
 
                 <TextView
@@ -72,19 +68,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_12"
+                    style="@style/TextSmall"
                     tools:text="2 SKS" />
 
                 <TextView
                     android:id="@+id/tvJadwalKuliahKelas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_weight="1"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_12"
+                    style="@style/TextSmall"
                     tools:text="Kelas A" />
 
                 <TextView
@@ -92,9 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_small_12"
+                    style="@style/TextSmall"
                     tools:text="B409" />
             </LinearLayout>
 

@@ -50,4 +50,27 @@
         <item name="DialogSpotCount">4</item>
     </style>
 
+    <!--TextView Widget-->
+    <style name="TextMediumBold" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorDefaultText</item>
+        <item name="android:textSize">@dimen/text_default_16</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextDefaultBold" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorDefaultText</item>
+        <item name="android:textSize">@dimen/text_small_14</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextDefault" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorDefaultText</item>
+        <item name="android:textSize">@dimen/text_small_14</item>
+    </style>
+
+    <style name="TextSmall" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorSmallText</item>
+        <item name="android:textSize">@dimen/text_small_12</item>
+    </style>
+
 </resources>

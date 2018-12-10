@@ -81,7 +81,7 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
 
     @Override
     public void showHasilStudi(List<HasilStudi> hasilStudiList) {
-        mAdapter = new HasilStudiAdapter(hasilStudiList);
+        mAdapter = new HasilStudiAdapter(context, hasilStudiList);
         mAdapter.notifyDataSetChanged();
         rvHasilStudi.setAdapter(mAdapter);
 
