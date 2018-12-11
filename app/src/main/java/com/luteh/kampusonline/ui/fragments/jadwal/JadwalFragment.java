@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayout;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseFragment;
-import com.luteh.kampusonline.common.util.CustomViewPager;
+import com.luteh.kampusonline.common.utils.CustomViewPager;
 import com.luteh.kampusonline.ui.fragments.jadwal.kuliah.JadwalKuliahFragment;
 import com.luteh.kampusonline.ui.fragments.jadwal.pengganti.JadwalPenggantiFragment;
 import com.luteh.kampusonline.ui.fragments.jadwal.susulan.JadwalSusulanFragment;

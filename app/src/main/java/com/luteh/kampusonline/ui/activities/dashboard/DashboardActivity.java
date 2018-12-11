@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.luteh.kampusonline.common.AppConstant;
 import com.luteh.kampusonline.common.Common;
-import com.luteh.kampusonline.common.util.HeaderViewHolder;
+import com.luteh.kampusonline.common.utils.HeaderViewHolder;
 import com.luteh.kampusonline.model.JatuhTempoDate;
 import com.luteh.kampusonline.model.User;
 import com.luteh.kampusonline.ui.activities.login.LoginActivity;

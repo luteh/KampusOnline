@@ -10,7 +10,7 @@ import android.view.Window;
 
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
-import com.luteh.kampusonline.common.util.PermissionHelper;
+import com.luteh.kampusonline.common.utils.PermissionHelper;
 import com.luteh.kampusonline.ui.activities.login.LoginActivity;
 
 public class SplashActivity extends BaseActivity {

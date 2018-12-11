@@ -43,7 +43,10 @@ public class JadwalPenggantiAdapter extends RecyclerView.Adapter<JadwalKuliahVie
         holder.tvJadwalKuliahKelas.setText(String.format("Kelas %s", jadwalPenggantiList.get(position).kelas));
         holder.tvJadwalKuliahRuangan.setText(jadwalPenggantiList.get(position).new_ruangan);
         holder.tvJadwalKuliahSks.setText(String.format("%s SKS", jadwalPenggantiList.get(position).sks));
-        holder.tvJadwalKuliahHari.setText(jadwalPenggantiList.get(position).new_hari);
+        holder.tvJadwalKuliahHari.setText(
+                String.format("%s", jadwalPenggantiList.get(position).new_tanggal)
+                        .substring(0, 6)
+        );
         holder.tvJadwalKuliahStartClass.setText(jadwalPenggantiList.get(position).new_start_class);
         holder.tvJadwalKuliahFinishClass.setText(jadwalPenggantiList.get(position).new_finish_class);
     }

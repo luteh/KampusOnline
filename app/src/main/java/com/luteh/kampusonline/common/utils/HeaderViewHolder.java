@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.common.util;
+package com.luteh.kampusonline.common.utils;
 
 import android.view.View;
 import android.widget.ImageView;

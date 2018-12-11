@@ -51,6 +51,16 @@
     </style>
 
     <!--TextView Widget-->
+    <style name="TextHeaderBold" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/colorDefaultText</item>
+        <item name="android:textSize">@dimen/text_large_</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">@color/colorAccent</item>
+        <item name="android:shadowDx">5</item>
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowRadius">5</item>
+    </style>
+
     <style name="TextMediumBold" parent="android:Widget.TextView">
         <item name="android:textColor">@color/colorDefaultText</item>
         <item name="android:textSize">@dimen/text_default_16</item>
@@ -85,6 +95,12 @@
     <style name="TextDefaultRed" parent="android:Widget.TextView">
         <item name="android:textColor">@color/colorRed</item>
         <item name="android:textSize">@dimen/text_small_14</item>
+    </style>
+
+    <style name="SelectableItemBackground">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
 
 

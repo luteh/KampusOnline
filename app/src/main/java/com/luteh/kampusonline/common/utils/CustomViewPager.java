@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.common.util;
+package com.luteh.kampusonline.common.utils;
 
 import android.content.Context;
 import android.util.AttributeSet;

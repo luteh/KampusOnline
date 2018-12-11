@@ -2,10 +2,11 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SelectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_default"
-    app:cardBackgroundColor="@android:color/white"
+    app:cardBackgroundColor="@color/colorBackgroundDefault"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
 
@@ -57,34 +58,34 @@
 
                 <TextView
                     android:id="@+id/tvJadwalKuliahKode"
+                    style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    style="@style/TextSmall"
                     tools:text="0611204" />
 
                 <TextView
                     android:id="@+id/tvJadwalKuliahSks"
+                    style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    style="@style/TextSmall"
                     tools:text="2 SKS" />
 
                 <TextView
                     android:id="@+id/tvJadwalKuliahKelas"
+                    style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    style="@style/TextSmall"
                     tools:text="Kelas A" />
 
                 <TextView
                     android:id="@+id/tvJadwalKuliahRuangan"
+                    style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    style="@style/TextSmall"
                     tools:text="B409" />
             </LinearLayout>
 
@@ -110,8 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/text_small_14"
+                style="@style/TextDefaultGreen"
                 tools:text="08.50" />
 
             <TextView
@@ -119,8 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/text_small_14"
+                style="@style/TextDefaultRed"
                 tools:text="10.30" />
 
         </LinearLayout>
