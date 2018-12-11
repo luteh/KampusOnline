@@ -17,25 +17,25 @@ import butterknife.ButterKnife;
 public class JadwalKuliahViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.tvJadwalKuliahNo)
-    TextView tvJadwalKuliahNo;
+    public TextView tvJadwalKuliahNo;
     @BindView(R.id.tvJadwalKuliahMatkul)
-    TextView tvJadwalKuliahMatkul;
+    public TextView tvJadwalKuliahMatkul;
     @BindView(R.id.tvJadwalKuliahDosen)
-    TextView tvJadwalKuliahDosen;
+    public TextView tvJadwalKuliahDosen;
     @BindView(R.id.tvJadwalKuliahKode)
-    TextView tvJadwalKuliahKode;
+    public TextView tvJadwalKuliahKode;
     @BindView(R.id.tvJadwalKuliahSks)
-    TextView tvJadwalKuliahSks;
+    public TextView tvJadwalKuliahSks;
     @BindView(R.id.tvJadwalKuliahKelas)
-    TextView tvJadwalKuliahKelas;
+    public TextView tvJadwalKuliahKelas;
     @BindView(R.id.tvJadwalKuliahRuangan)
-    TextView tvJadwalKuliahRuangan;
+    public TextView tvJadwalKuliahRuangan;
     @BindView(R.id.tvJadwalKuliahHari)
-    TextView tvJadwalKuliahHari;
+    public TextView tvJadwalKuliahHari;
     @BindView(R.id.tvJadwalKuliahStartClass)
-    TextView tvJadwalKuliahStartClass;
+    public TextView tvJadwalKuliahStartClass;
     @BindView(R.id.tvJadwalKuliahFinishClass)
-    TextView tvJadwalKuliahFinishClass;
+    public TextView tvJadwalKuliahFinishClass;
 
     public JadwalKuliahViewHolder(@NonNull View itemView) {
         super(itemView);
