@@ -84,6 +84,10 @@
     <string name="title_penggangti_fragment">Pengganti</string>
     <string name="title_susulan_fragment">Susulan</string>
 
+    <!--Jadwal Pengganti-->
+    <string name="label_ditiadakan">Ditiadakan</string>
+    <string name="label_pengganti">Pengganti</string>
+
     <string name="title_keuangan_fragment">Keuangan</string>
     <string name="title_rencana_studi_fragment">Rencana Studi</string>
 

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackgroundDefault"
+    app:cardCornerRadius="@dimen/margin_default"
+    app:cardElevation="@dimen/margin_default">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_default"
+        android:paddingBottom="@dimen/margin_default">
+
+        <TextView
+            style="@style/TextMediumBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="Bahasa Indonesia" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextDefaultBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/label_ditiadakan" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogOldHari"
+                    style="@style/TextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:gravity="center"
+                    tools:text="Senin" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogOldTanggal"
+                    style="@style/TextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="29 Sep 2018" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogOldStartClass"
+                    style="@style/TextDefaultGreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="07:00" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogOldFinishClass"
+                    style="@style/TextDefaultRed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="08:00" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogOldRuangan"
+                    style="@style/TextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="C117" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBackground" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextDefaultBold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/label_pengganti" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogNewHari"
+                    style="@style/TextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_default"
+                    android:gravity="center"
+                    tools:text="Selasa" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogNewTanggal"
+                    style="@style/TextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="30 Sep 2018" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogNewStartClass"
+                    style="@style/TextDefaultGreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="10:00" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogNewFinishClass"
+                    style="@style/TextDefaultRed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="11:00" />
+
+                <TextView
+                    android:id="@+id/tvPenggantiDialogNewRuangan"
+                    style="@style/TextDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="center"
+                    tools:text="B416" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
