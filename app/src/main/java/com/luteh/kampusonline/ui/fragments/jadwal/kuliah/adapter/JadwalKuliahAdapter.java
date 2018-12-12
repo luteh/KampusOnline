@@ -4,7 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.luteh.kampusonline.R;
-import com.luteh.kampusonline.model.JadwalKuliah;
+import com.luteh.kampusonline.model.jadwal.JadwalKuliah;
 
 import java.util.List;
 

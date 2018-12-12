@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/SelectableItemBackground"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/colorBackgroundDefault"
     android:orientation="vertical">
 
@@ -28,24 +27,17 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="7"
             android:orientation="vertical">
 
 
             <TextView
-                android:id="@+id/tvJadwalKuliahMatkul"
+                android:id="@+id/tvJadwalUjianMatkul"
                 style="@style/TextDefaultBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Manajemen Perusahaan Industri" />
-
-            <TextView
-                android:id="@+id/tvJadwalKuliahDosen"
-                style="@style/TextDefault"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_small"
-                tools:text="Lia Maulia Indrayani, DR. Hj., Dra., M.Hum." />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,23 +46,16 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvJadwalKuliahKode"
+                    android:id="@+id/tvJadwalUjianKode"
                     style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     tools:text="0611204" />
 
-                <TextView
-                    android:id="@+id/tvJadwalKuliahSks"
-                    style="@style/TextSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:text="2 SKS" />
 
                 <TextView
-                    android:id="@+id/tvJadwalKuliahKelas"
+                    android:id="@+id/tvJadwalUjianKelas"
                     style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,7 +63,7 @@
                     tools:text="Kelas A" />
 
                 <TextView
-                    android:id="@+id/tvJadwalKuliahRuangan"
+                    android:id="@+id/tvJadwalUjianRuangan"
                     style="@style/TextSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,17 +71,40 @@
                     tools:text="B409" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvJadwalUjianKelompok"
+                    style="@style/TextSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Kelompok 21" />
+
+                <TextView
+                    android:id="@+id/tvJadwalUjianKursi"
+                    style="@style/TextSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Kursi 27" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvJadwalKuliahHari"
+                android:id="@+id/tvJadwalUjianHari"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
@@ -104,7 +112,15 @@
                 tools:text="Selasa" />
 
             <TextView
-                android:id="@+id/tvJadwalKuliahStartClass"
+                android:id="@+id/tvJadwalUjianTanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_small_14"
+                tools:text="27 Sep" />
+
+            <TextView
+                android:id="@+id/tvJadwalUjianStartClass"
                 style="@style/TextDefaultGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +128,7 @@
                 tools:text="08.50" />
 
             <TextView
-                android:id="@+id/tvJadwalKuliahFinishClass"
+                android:id="@+id/tvJadwalUjianFinishClass"
                 style="@style/TextDefaultRed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -127,5 +143,4 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorBackground" />
-
 </LinearLayout>

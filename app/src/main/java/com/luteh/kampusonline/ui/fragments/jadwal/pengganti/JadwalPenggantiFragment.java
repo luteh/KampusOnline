@@ -15,7 +15,7 @@ import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.common.utils.RecyclerTouchListener;
-import com.luteh.kampusonline.model.JadwalPengganti;
+import com.luteh.kampusonline.model.jadwal.JadwalPengganti;
 import com.luteh.kampusonline.ui.fragments.jadwal.pengganti.adapter.JadwalPenggantiAdapter;
 
 import java.util.ArrayList;

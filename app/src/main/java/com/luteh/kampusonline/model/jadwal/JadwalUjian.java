@@ -1,21 +1,19 @@
-package com.luteh.kampusonline.model;
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package com.luteh.kampusonline.model.jadwal;
 
 /**
- * Created by Luthfan Maftuh on 08/12/2018.
+ * Created by Luthfan Maftuh on 12/12/2018.
  * Email luthfanmaftuh@gmail.com
  */
-public class JadwalKuliah {
+public class JadwalUjian {
     public String no;
     public String kode;
     public String mata_kuliah;
-    public String sks;
-    public String dosen;
     public String kelas;
     public String ruangan;
     public String hari;
     public String start_class;
     public String finish_class;
+    public String tanggal;
+    public String kelompok;
+    public String kursi;
 }

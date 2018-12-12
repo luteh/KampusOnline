@@ -1,6 +1,6 @@
 package com.luteh.kampusonline.ui.fragments.jadwal.pengganti;
 
-import com.luteh.kampusonline.model.JadwalPengganti;
+import com.luteh.kampusonline.model.jadwal.JadwalPengganti;
 
 import java.util.List;
 

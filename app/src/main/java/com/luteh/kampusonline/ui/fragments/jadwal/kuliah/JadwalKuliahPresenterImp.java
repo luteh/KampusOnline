@@ -4,7 +4,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.luteh.kampusonline.common.Common;
-import com.luteh.kampusonline.model.JadwalKuliah;
+import com.luteh.kampusonline.model.jadwal.JadwalKuliah;
 
 import java.util.ArrayList;
 import java.util.List;

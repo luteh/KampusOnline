@@ -47,7 +47,7 @@ public class JadwalFragment extends BaseFragment {
     @Override
     protected void onInit() {
         super.onInit();
-        vpJadwal.setPagingEnabled(false);
+        vpJadwal.setPagingEnabled(true);
 
         setupViewPager();
 

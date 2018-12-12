@@ -4,9 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.luteh.kampusonline.R;
-import com.luteh.kampusonline.model.JadwalKuliah;
-import com.luteh.kampusonline.model.JadwalPengganti;
-import com.luteh.kampusonline.ui.fragments.jadwal.kuliah.adapter.JadwalKuliahDiffUtilCallback;
+import com.luteh.kampusonline.model.jadwal.JadwalPengganti;
 import com.luteh.kampusonline.ui.fragments.jadwal.kuliah.adapter.JadwalKuliahViewHolder;
 
 import java.util.List;

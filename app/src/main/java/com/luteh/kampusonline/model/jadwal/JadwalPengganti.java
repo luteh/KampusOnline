@@ -1,4 +1,4 @@
-package com.luteh.kampusonline.model;
+package com.luteh.kampusonline.model.jadwal;
 
 /**
  * Created by Luthfan Maftuh on 11/12/2018.

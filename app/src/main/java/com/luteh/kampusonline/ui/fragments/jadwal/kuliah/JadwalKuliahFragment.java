@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
-import com.luteh.kampusonline.model.JadwalKuliah;
+import com.luteh.kampusonline.model.jadwal.JadwalKuliah;
 import com.luteh.kampusonline.ui.fragments.jadwal.kuliah.adapter.JadwalKuliahAdapter;
 
 import java.util.List;
