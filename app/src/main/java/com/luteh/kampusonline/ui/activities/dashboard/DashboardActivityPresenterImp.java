@@ -90,6 +90,15 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
                             .replace("/", "-")
                             .toLowerCase());
         }
+
+        for (String ujianSemesterList : list) {
+            Common.ujianSemesterList.add(String.format("UTS %s", ujianSemesterList));
+            Common.ujianSemesterList.add(String.format("UAS %s", ujianSemesterList));
+        }
+        for (String ujianSemesterChildList : Common.semesterListCollectionNames) {
+            Common.ujianSemesterListChildNames.add(String.format("uts_%s", ujianSemesterChildList));
+            Common.ujianSemesterListChildNames.add(String.format("uas_%s", ujianSemesterChildList));
+        }
     }
 
     @Override
