@@ -23,10 +23,13 @@ import java.util.List;
 public class Common {
 
     public static String currentUID = null;
+
     public static List<String> semesterLists = new ArrayList<>();
     public static List<String> semesterListCollectionNames = new ArrayList<>();
     public static List<String> ujianSemesterList = new ArrayList<>();
     public static List<String> ujianSemesterListChildNames = new ArrayList<>();
+    public static List<String> susulanSemesterList = new ArrayList<>();
+    public static List<String> susulanSemesterListChildNames = new ArrayList<>();
 
     private static AlertDialog.Builder builder;
     private static AlertDialog dialog;

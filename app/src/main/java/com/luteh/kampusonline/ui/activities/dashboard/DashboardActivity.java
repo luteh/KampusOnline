@@ -114,6 +114,8 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                 Common.isFrsDialogShowed = false;
                 Common.semesterLists.clear();
                 Common.semesterListCollectionNames.clear();
+                Common.ujianSemesterList.clear();
+                Common.ujianSemesterListChildNames.clear();
                 break;
         }
 

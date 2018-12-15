@@ -8,12 +8,18 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.jadwal.JadwalFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabsJadwal"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabGravity="fill"
-        app:tabMode="fixed" />
+        app:cardElevation="4dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabsJadwal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="scrollable" />
+    </com.google.android.material.card.MaterialCardView>
 
     <com.luteh.kampusonline.common.utils.CustomViewPager
         android:id="@+id/vpJadwal"

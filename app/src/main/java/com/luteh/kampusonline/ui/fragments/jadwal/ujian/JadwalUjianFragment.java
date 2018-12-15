@@ -86,7 +86,6 @@ public class JadwalUjianFragment extends BaseFragment implements IJadwalUjianVie
     @Override
     public void onRetrieveDataSuccess(List<JadwalUjian> jadwalUjianList) {
         showJadwalUjian(jadwalUjianList);
-        Log.d(TAG, "onSuccess: " + jadwalUjianList.toString());
     }
 
     public void showJadwalUjian(List<JadwalUjian> jadwalUjianList) {

@@ -18,6 +18,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.model.JatuhTempoDate;
+import com.luteh.kampusonline.model.SemesterLists;
 import com.luteh.kampusonline.model.User;
 
 import org.reactivestreams.Subscriber;
@@ -67,12 +68,11 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
         DatabaseReference databaseReference =
                 FirebaseDatabase.getInstance().getReference()
                         .child("semester_list")
-                        .child(Common.currentUID)
-                        .child("semester_list");
+                        .child(Common.currentUID);
 
         RxFirebaseDatabase.observeSingleValueEvent(databaseReference,
                 dataSnapshot -> {
-                    List<String> list = (List<String>) dataSnapshot.getValue();
+                    SemesterLists list = dataSnapshot.getValue(SemesterLists.class);
                     return list;
                 })
                 .subscribeOn(Schedulers.io())
@@ -82,16 +82,13 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
                 });
     }
 
-    private void setSemesterLists(List<String> list) {
-        Common.semesterLists.addAll(list);
-        for (String stringLists : list) {
-            Common.semesterListCollectionNames.add(
-                    stringLists.replace(" ", "_")
-                            .replace("/", "-")
-                            .toLowerCase());
+    private void setSemesterLists(SemesterLists list) {
+        Common.semesterLists.addAll(list.semester_list);
+        for (String stringLists : list.semester_list) {
+            Common.semesterListCollectionNames.add(formatChildNameString(stringLists));
         }
 
-        for (String ujianSemesterList : list) {
+        for (String ujianSemesterList : list.semester_list) {
             Common.ujianSemesterList.add(String.format("UTS %s", ujianSemesterList));
             Common.ujianSemesterList.add(String.format("UAS %s", ujianSemesterList));
         }
@@ -99,6 +96,18 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
             Common.ujianSemesterListChildNames.add(String.format("uts_%s", ujianSemesterChildList));
             Common.ujianSemesterListChildNames.add(String.format("uas_%s", ujianSemesterChildList));
         }
+
+        Common.susulanSemesterList.addAll(list.susulan_semester_list);
+        for (String str : list.susulan_semester_list) {
+            Common.susulanSemesterListChildNames.add(formatChildNameString(str));
+        }
+
+    }
+
+    private String formatChildNameString(String string) {
+        return string.replace(" ", "_")
+                .replace("/", "-")
+                .toLowerCase();
     }
 
     @Override
