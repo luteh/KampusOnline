@@ -89,7 +89,12 @@
     <string name="label_pengganti">Pengganti</string>
 
     <string name="title_keuangan_fragment">Keuangan</string>
+
+    <!--Rencana Studi-->
     <string name="title_rencana_studi_fragment">Rencana Studi</string>
+    <string name="label_tahun_akademik">Tahun Akademik</string>
+    <string name="label_ipk_sks">IPK terakhir / SKS yang diambil</string>
+    <string name="label_sks_matkul">Jatah SKS / Mata Kuliah yang diambil</string>
 
     <string name="title_message_loading">Loading . . .</string>
 
