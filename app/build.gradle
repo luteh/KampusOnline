@@ -89,6 +89,10 @@ dependencies {
     
     // Rx2Firebase
     implementation 'com.github.FrangSierra:RxFirebase:1.5.6'
+
+    // Expendable RecyclerView
+    implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
