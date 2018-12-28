@@ -7,4 +7,6 @@ package com.luteh.kampusonline.common;
 public class AppConstant {
     public static final String KEY_PDF_ASSET = "pdf_asset";
     public static final String KEY_UID = "uid";
+
+    public static final String ARG_FRS = "frs";
 }

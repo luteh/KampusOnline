@@ -28,6 +28,7 @@ import com.luteh.kampusonline.ui.fragments.hasilstudi.HasilStudiFragment;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
 import com.luteh.kampusonline.ui.fragments.jadwal.JadwalFragment;
+import com.luteh.kampusonline.ui.fragments.rencanastudi.RencanaStudiFragment;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -145,6 +146,7 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                 replaceFragment(new JadwalFragment(), R.string.title_jadwal_fragment);
                 break;
             case R.id.navRencanaStudi:
+                replaceFragment(new RencanaStudiFragment(), R.string.title_rencana_studi_fragment);
                 break;
             case R.id.navLogout:
                 break;
