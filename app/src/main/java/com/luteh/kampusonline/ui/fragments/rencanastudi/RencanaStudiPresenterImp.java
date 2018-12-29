@@ -41,9 +41,10 @@ public class RencanaStudiPresenterImp implements IRencanaStudiPresenter {
                 dataSnapshot -> dataSnapshot.getValue(FRencanaStudi.class))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(fRencanaStudiList -> {
+                .subscribe(fRencanaStudi -> {
 //                    iJadwalKuliahView.showJadwalKuliah(jadwalKuliahList);
-                    Log.d("RencanaStudiPresenter", String.format("FRS: %s", fRencanaStudiList.semester_1.get(2).mata_kuliah));
-                });
+                    Log.d("RencanaStudiPresenter", String.format("FRS: %s", fRencanaStudi.semester_1.get(2).mata_kuliah));
+                    iRencanaStudiView.onRetrieveDataSuccess(fRencanaStudi);
+                }, throwable -> Log.e("RencanaStudiPresenter", throwable.getMessage()));
     }
 }

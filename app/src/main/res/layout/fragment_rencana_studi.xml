@@ -1,70 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:scrollbars="vertical"
     tools:context=".ui.fragments.rencanastudi.RencanaStudiFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilTahunAkademik"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+    <RelativeLayout
+        android:id="@+id/formLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default">
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etTahunAkademik"
-            style="@style/EditTextNotEditable"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTahunAkademik"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/label_tahun_akademik"
-            android:imeOptions="actionDone"
-            android:inputType="textEmailAddress" />
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTahunAkademik"
+                style="@style/EditTextNotEditable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_tahun_akademik"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilIpkSks"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilIpkSks"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilTahunAkademik"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etIpkSks"
+                style="@style/EditTextNotEditable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_ipk_sks"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSksMatkul"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tilIpkSks"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginEnd="@dimen/margin_default">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSksMatkul"
+                style="@style/EditTextNotEditable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_sks_matkul"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRencanaStudi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default">
+        android:layout_height="match_parent"
+        android:layout_below="@id/formLayout" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etIpkSks"
-            style="@style/EditTextNotEditable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_ipk_sks"
-            android:imeOptions="actionDone"
-            android:inputType="textEmailAddress" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilSksMatkul"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etSksMatkul"
-            style="@style/EditTextNotEditable"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_sks_matkul"
-            android:imeOptions="actionDone"
-            android:inputType="textEmailAddress" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-</LinearLayout>
+</RelativeLayout>

@@ -70,11 +70,12 @@
             </LinearLayout>
         </LinearLayout>
 
-        <CheckBox
+        <CheckedTextView
             android:id="@+id/cbFrs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:checkMark="?android:attr/listChoiceIndicatorMultiple"
             android:gravity="center" />
     </LinearLayout>
 

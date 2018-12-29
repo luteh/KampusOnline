@@ -1,5 +1,8 @@
 package com.luteh.kampusonline.model.rencanastudi;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Luthfan Maftuh on 28/12/2018.
  * Email luthfanmaftuh@gmail.com

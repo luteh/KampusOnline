@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.luteh.kampusonline.R;
+import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup;
 import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder;
 
 import butterknife.BindView;
@@ -27,6 +28,10 @@ public class RencanaStudiGroupViewHolder extends GroupViewHolder {
     public RencanaStudiGroupViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+    }
+
+    public void setGroupTitle(ExpandableGroup genre){
+        tvFrsSemester.setText(genre.getTitle());
     }
 
     @Override
