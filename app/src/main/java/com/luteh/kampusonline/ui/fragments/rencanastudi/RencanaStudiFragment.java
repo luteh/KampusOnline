@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.rencanastudi.FRencanaStudi;
@@ -29,7 +30,7 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
     private RencanaStudiAdapter adapter;
 
     @BindView(R.id.rvRencanaStudi)
-    RecyclerView rvRencanaStudi;
+    ShimmerRecyclerView rvRencanaStudi;
 
     public RencanaStudiFragment() {
         // Required empty public constructor
@@ -53,25 +54,13 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
         iRencanaStudiPresenter = new RencanaStudiPresenterImp(this);
 
         iRencanaStudiPresenter.retrieveFrsData();
+        rvRencanaStudi.showShimmerAdapter();
     }
 
     @Override
     public void onRetrieveDataSuccess(FRencanaStudi fRencanaStudi) {
+        rvRencanaStudi.hideShimmerAdapter();
         adapter = new RencanaStudiAdapter(makeRencanaStudiGroups(fRencanaStudi));
         rvRencanaStudi.setAdapter(adapter);
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        adapter.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
-        super.onViewStateRestored(savedInstanceState);
-        if (savedInstanceState != null) {
-            adapter.onRestoreInstanceState(savedInstanceState);
-        }
     }
 }

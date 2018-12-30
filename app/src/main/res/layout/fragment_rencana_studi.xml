@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -77,10 +78,13 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/rvRencanaStudi"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/formLayout" />
+        android:layout_below="@id/formLayout"
+        app:shimmer_demo_child_count="8"
+        app:shimmer_demo_layout="@layout/fragment_rencana_studi_group_item"
+        app:shimmer_demo_layout_manager_type="linear_vertical" />
 
 </RelativeLayout>

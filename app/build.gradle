@@ -93,6 +93,9 @@ dependencies {
     // Expendable RecyclerView
     implementation 'com.thoughtbot:expandablecheckrecyclerview:1.4'
 
+    // Shimmer RecyclerView
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
