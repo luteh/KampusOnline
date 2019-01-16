@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.google.android.material.textfield.TextInputEditText;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.rencanastudi.FRencanaStudi;
@@ -31,6 +32,8 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
 
     @BindView(R.id.rvRencanaStudi)
     ShimmerRecyclerView rvRencanaStudi;
+    @BindView(R.id.etTahunAkademik)
+    TextInputEditText etTahunAkademik;
 
     public RencanaStudiFragment() {
         // Required empty public constructor
@@ -60,6 +63,7 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
     @Override
     public void onRetrieveDataSuccess(FRencanaStudi fRencanaStudi) {
         rvRencanaStudi.hideShimmerAdapter();
+        etTahunAkademik.setText(fRencanaStudi.tahun_akademik);
         adapter = new RencanaStudiAdapter(makeRencanaStudiGroups(fRencanaStudi));
         rvRencanaStudi.setAdapter(adapter);
     }

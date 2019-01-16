@@ -36,7 +36,7 @@ android {
 
 
 ext {
-    butterKnifeVersion = "9.0.0-rc1"
+    butterKnifeVersion = "10.0.0"
     firebaseVersion = "16.0.5"
 }
 
