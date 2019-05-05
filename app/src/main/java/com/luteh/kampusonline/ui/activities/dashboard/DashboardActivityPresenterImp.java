@@ -170,31 +170,27 @@ public class DashboardActivityPresenterImp implements IDashboardActivityPresente
     }
 
     private Single<JatuhTempoDate> getJatuhTempoLastDate() {
-        return Single.create(new SingleOnSubscribe<JatuhTempoDate>() {
-
-            @Override
-            public void subscribe(final SingleEmitter<JatuhTempoDate> emitter) throws Exception {
-                final DocumentReference docRef = FirebaseFirestore.getInstance()
-                        .collection("jatuh_tempo_frs")
-                        .document("2012");
-                docRef.get()
-                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(Task<DocumentSnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    DocumentSnapshot document = task.getResult();
-                                    if (document.exists()) {
-                                        JatuhTempoDate jatuhTempoDate = document.toObject(JatuhTempoDate.class);
-                                        emitter.onSuccess(jatuhTempoDate);
-                                    } else {
-                                        Log.d(TAG, "No such document");
-                                    }
+        return Single.create(emitter -> {
+            final DocumentReference docRef = FirebaseFirestore.getInstance()
+                    .collection("jatuh_tempo_frs")
+                    .document("2012");
+            docRef.get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    JatuhTempoDate jatuhTempoDate = document.toObject(JatuhTempoDate.class);
+                                    emitter.onSuccess(jatuhTempoDate);
                                 } else {
-                                    Log.d(TAG, "get failed with ", task.getException());
+                                    Log.d(TAG, "No such document");
                                 }
+                            } else {
+                                Log.d(TAG, "get failed with ", task.getException());
                             }
-                        });
-            }
+                        }
+                    });
         });
     }
 
