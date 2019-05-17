@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 
+import com.google.android.material.tabs.TabLayout;
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.common.utils.CustomViewPager;
@@ -28,7 +29,7 @@ public class JadwalFragment extends BaseFragment {
     private JadwalPagerAdapter adapter;
 
     @BindView(R.id.tabsJadwal)
-    TableLayout tabsJadwal;
+    TabLayout tabsJadwal;
     @BindView(R.id.vpJadwal)
     CustomViewPager vpJadwal;
 
@@ -51,7 +52,7 @@ public class JadwalFragment extends BaseFragment {
 
         setupViewPager();
 
-//        tabsJadwal.setupWithViewPager(vpJadwal);
+        tabsJadwal.setupWithViewPager(vpJadwal);
     }
 
     private void setupViewPager() {
