@@ -5,5 +5,6 @@
         android:id="@+id/menuLogout"
         android:orderInCategory="100"
         android:title="@string/label_logout"
+        android:visible="false"
         app:showAsAction="never" />
 </menu>

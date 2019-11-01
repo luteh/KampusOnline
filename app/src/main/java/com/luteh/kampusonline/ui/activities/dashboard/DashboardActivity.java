@@ -149,6 +149,15 @@ public class DashboardActivity extends BaseActivity implements NavigationView.On
                 replaceFragment(new RencanaStudiFragment(), R.string.title_rencana_studi_fragment);
                 break;
             case R.id.navLogout:
+                mAuth.signOut();
+                FirebaseUser user = mAuth.getCurrentUser();
+                updateUI(user);
+
+                Common.isFrsDialogShowed = false;
+                Common.semesterLists.clear();
+                Common.semesterListCollectionNames.clear();
+                Common.ujianSemesterList.clear();
+                Common.ujianSemesterListChildNames.clear();
                 break;
         }
 
