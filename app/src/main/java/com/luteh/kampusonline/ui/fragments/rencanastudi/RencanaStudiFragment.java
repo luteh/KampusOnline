@@ -1,24 +1,25 @@
 package com.luteh.kampusonline.ui.fragments.rencanastudi;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.luteh.kampusonline.R;
+import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.rencanastudi.FRencanaStudi;
 import com.luteh.kampusonline.ui.fragments.rencanastudi.adapter.RencanaStudiAdapter;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 import static com.luteh.kampusonline.ui.fragments.rencanastudi.adapter.RencanaStudiGroupDataFactory.makeRencanaStudiGroups;
 
@@ -34,6 +35,12 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
     ShimmerRecyclerView rvRencanaStudi;
     @BindView(R.id.etTahunAkademik)
     TextInputEditText etTahunAkademik;
+    @BindView(R.id.etIpkTerakhir)
+    TextInputEditText etIpkSks;
+    @BindView(R.id.etJatahSks)
+    TextInputEditText etSksMatkul;
+    @BindView(R.id.btnRencanaStudi)
+    MaterialButton btnRencanaStudi;
 
     public RencanaStudiFragment() {
         // Required empty public constructor
@@ -60,10 +67,17 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
         rvRencanaStudi.showShimmerAdapter();
     }
 
+    @OnClick(R.id.btnRencanaStudi)
+    void onClickBtnRencanaStudi() {
+        Common.showSuccessMessage(context, getString(R.string.label_message_success_submit_frs));
+    }
+
     @Override
     public void onRetrieveDataSuccess(FRencanaStudi fRencanaStudi) {
         rvRencanaStudi.hideShimmerAdapter();
         etTahunAkademik.setText(fRencanaStudi.tahun_akademik);
+        etIpkSks.setText(fRencanaStudi.ipk_terakhir);
+        etSksMatkul.setText(getString(R.string.label_jatah_sks, fRencanaStudi.jatah_sks));
         adapter = new RencanaStudiAdapter(makeRencanaStudiGroups(fRencanaStudi));
         rvRencanaStudi.setAdapter(adapter);
     }

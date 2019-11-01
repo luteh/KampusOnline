@@ -1,90 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="vertical"
     tools:context=".ui.fragments.rencanastudi.RencanaStudiFragment">
 
     <RelativeLayout
-        android:id="@+id/formLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:descendantFocusability="blocksDescendants"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilTahunAkademik"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        <RelativeLayout
+            android:id="@+id/formLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/margin_default"
-            android:layout_marginEnd="@dimen/margin_default">
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTahunAkademik"
-                style="@style/EditTextNotEditable"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTahunAkademik"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/label_tahun_akademik"
-                android:imeOptions="actionDone"
-                android:inputType="textEmailAddress" />
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTahunAkademik"
+                    style="@style/EditTextNotEditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_tahun_akademik"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilIpkSks"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilIpkTerakhir"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilTahunAkademik"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etIpkTerakhir"
+                    style="@style/EditTextNotEditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_ipk_sks"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilJatahSks"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilIpkTerakhir"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etJatahSks"
+                    style="@style/EditTextNotEditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_sks_matkul"
+                    android:imeOptions="actionDone"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </RelativeLayout>
+
+        <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+            android:id="@+id/rvRencanaStudi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tilTahunAkademik"
-            android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/margin_default"
-            android:layout_marginEnd="@dimen/margin_default">
+            android:layout_below="@id/formLayout"
+            app:shimmer_demo_child_count="8"
+            app:shimmer_demo_layout="@layout/fragment_rencana_studi_group_item"
+            app:shimmer_demo_layout_manager_type="linear_vertical" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etIpkSks"
-                style="@style/EditTextNotEditable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/label_ipk_sks"
-                android:imeOptions="actionDone"
-                android:inputType="textEmailAddress" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilSksMatkul"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRencanaStudi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tilIpkSks"
-            android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/margin_default"
-            android:layout_marginEnd="@dimen/margin_default">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSksMatkul"
-                style="@style/EditTextNotEditable"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/label_sks_matkul"
-                android:imeOptions="actionDone"
-                android:inputType="textEmailAddress" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@id/rvRencanaStudi"
+            android:layout_margin="@dimen/margin_large__"
+            android:text="@string/label_submit" />
 
     </RelativeLayout>
-
-    <com.cooltechworks.views.shimmer.ShimmerRecyclerView
-        android:id="@+id/rvRencanaStudi"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/formLayout"
-        app:shimmer_demo_child_count="8"
-        app:shimmer_demo_layout="@layout/fragment_rencana_studi_group_item"
-        app:shimmer_demo_layout_manager_type="linear_vertical" />
-
-</RelativeLayout>
+</androidx.core.widget.NestedScrollView>

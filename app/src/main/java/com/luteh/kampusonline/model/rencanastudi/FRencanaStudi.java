@@ -15,6 +15,7 @@ public class FRencanaStudi {
     public List<Semester> semester_6 = null;
     public List<Semester> semester_7 = null;
     public List<Semester> semester_8 = null;
-    public Integer jatah_sks;
+    public String jatah_sks;
+    public String ipk_terakhir;
     public String tahun_akademik;
 }

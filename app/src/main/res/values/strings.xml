@@ -93,11 +93,14 @@
     <!--Rencana Studi-->
     <string name="title_rencana_studi_fragment">Rencana Studi</string>
     <string name="label_tahun_akademik">Tahun Akademik</string>
-    <string name="label_ipk_sks">IPK terakhir / SKS yang diambil</string>
-    <string name="label_sks_matkul">Jatah SKS / Mata Kuliah yang diambil</string>
+    <string name="label_ipk_sks">IPK terakhir</string>
+    <string name="label_sks_matkul">Jatah SKS</string>
+    <string name="label_jatah_sks">%s SKS</string>
 
     <string name="title_message_loading">Loading . . .</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_submit">Submit</string>
+    <string name="label_message_success_submit_frs">E-Form Rencana Studi anda telah dikirim</string>
 </resources>
