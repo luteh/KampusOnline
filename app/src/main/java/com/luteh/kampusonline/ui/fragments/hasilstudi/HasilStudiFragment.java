@@ -2,19 +2,17 @@ package com.luteh.kampusonline.ui.fragments.hasilstudi;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import butterknife.BindView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.adapter.HasilStudiAdapter;
@@ -22,7 +20,11 @@ import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.hasilstudi.HasilStudi;
 
+import java.io.FileNotFoundException;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -35,6 +37,8 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
     Spinner semesterSpinner;
     @BindView(R.id.rvHasilStudi)
     RecyclerView rvHasilStudi;
+    @BindView(R.id.llHasilStudi)
+    LinearLayout llHasilStudi;
 
     private IHasilStudiPresenter iHasilStudiPresenter;
 
@@ -86,5 +90,14 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
         rvHasilStudi.setAdapter(mAdapter);
 
         Common.dismissProgressBar();
+    }
+
+    @OnClick(R.id.btnHasilStudiSaveToPdf)
+    protected void saveToPdf() {
+        try {
+            Common.layoutToImage(llHasilStudi, getString(R.string.title_hasil_studi_fragment));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -3,10 +3,11 @@ package com.luteh.kampusonline.ui.activities;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.Handler;
-import androidx.annotation.NonNull;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Window;
+
+import androidx.annotation.NonNull;
 
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.base.BaseActivity;
@@ -35,7 +36,9 @@ public class SplashActivity extends BaseActivity {
         permissionHelper = new PermissionHelper.Builder(this)
                 .withPermissions(
                         Manifest.permission.INTERNET,
-                        Manifest.permission.GET_ACCOUNTS)
+                        Manifest.permission.GET_ACCOUNTS,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionHelper.OnPermissionCheckedListener() {
                     @Override
                     public void onPermissionGranted(boolean isPermissionAlreadyGranted) {

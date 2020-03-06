@@ -1,15 +1,18 @@
 package com.luteh.kampusonline.ui.fragments.jadwal.ujian;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.Common;
@@ -17,12 +20,11 @@ import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.jadwal.JadwalUjian;
 import com.luteh.kampusonline.ui.fragments.jadwal.ujian.adapter.JadwalUjianAdapter;
 
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
 import java.util.List;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +38,8 @@ public class JadwalUjianFragment extends BaseFragment implements IJadwalUjianVie
     Spinner jadwalUjianSpinner;
     @BindView(R.id.rvJadwalUjian)
     RecyclerView rvJadwalUjian;
+    @BindView(R.id.llJadwalUjian)
+    LinearLayout llJadwalUjian;
 
     private RecyclerView.Adapter mAdapter;
     private IJadwalUjianPresenter iJadwalUjianPresenter;
@@ -96,5 +100,14 @@ public class JadwalUjianFragment extends BaseFragment implements IJadwalUjianVie
             ((JadwalUjianAdapter) mAdapter).updateItem(jadwalUjianList);
 
 //        Common.dismissProgressBar();
+    }
+
+    @OnClick(R.id.btnJadwalUjianSaveToPdf)
+    protected void saveToPdf() {
+        try {
+            Common.layoutToImage(llJadwalUjian, getString(R.string.text_jadwal, getString(R.string.title_ujian_fragment)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

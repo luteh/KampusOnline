@@ -1,14 +1,18 @@
 package com.luteh.kampusonline.ui.fragments.jadwal.kuliah;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.Common;
@@ -16,11 +20,11 @@ import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.jadwal.JadwalKuliah;
 import com.luteh.kampusonline.ui.fragments.jadwal.kuliah.adapter.JadwalKuliahAdapter;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 
 /**
@@ -35,6 +39,8 @@ public class JadwalKuliahFragment extends BaseFragment implements AdapterView.On
     Spinner jadwalKuliahSpinner;
     @BindView(R.id.rvJadwalKuliah)
     RecyclerView rvJadwalKuliah;
+    @BindView(R.id.llJadwalKuliah)
+    LinearLayout llJadwalKuliah;
 
     public JadwalKuliahFragment() {
         // Required empty public constructor
@@ -87,5 +93,14 @@ public class JadwalKuliahFragment extends BaseFragment implements AdapterView.On
             ((JadwalKuliahAdapter) mAdapter).updateItem(jadwalKuliahList);
 
         Common.dismissProgressBar();
+    }
+
+    @OnClick(R.id.btnJadwalKuliahSaveToPdf)
+    protected void saveToPdf() {
+        try {
+            Common.layoutToImage(llJadwalKuliah, getString(R.string.text_jadwal, getString(R.string.title_kuliah_fragment)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

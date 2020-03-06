@@ -96,6 +96,9 @@ dependencies {
     // Shimmer RecyclerView
     implementation 'com.github.sharish:ShimmerRecyclerView:v1.3'
 
+    // IText
+    implementation 'com.itextpdf:itextg:5.5.10'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -7,30 +7,43 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.hasilstudi.HasilStudiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
+        android:id="@+id/llHasilStudi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_default"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginRight="@dimen/margin_default"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="4dp">
+        android:orientation="vertical">
 
-        <Spinner
-            android:id="@+id/semesterSpinner"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:textAlignment="center" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
 
-    </com.google.android.material.card.MaterialCardView>
+            <Spinner
+                android:id="@+id/semesterSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:textAlignment="center" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvHasilStudi"
-        android:layout_width="match_parent"
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHasilStudi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_default" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnHasilStudiSaveToPdf"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_default" />
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/margin_default"
+        android:text="@string/label_save_to_pdf" />
 
 </LinearLayout>

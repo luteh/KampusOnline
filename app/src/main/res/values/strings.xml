@@ -83,6 +83,7 @@
     <string name="title_ujian_fragment">Ujian</string>
     <string name="title_penggangti_fragment">Pengganti</string>
     <string name="title_susulan_fragment">Susulan</string>
+    <string name="text_jadwal">Jadwal %s</string>
 
     <!--Jadwal Pengganti-->
     <string name="label_ditiadakan">Ditiadakan</string>
@@ -103,4 +104,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="label_submit">Submit</string>
     <string name="label_message_success_submit_frs">E-Form Rencana Studi anda telah dikirim</string>
+
+    <string name="label_save_to_pdf">Save to PDF</string>
 </resources>

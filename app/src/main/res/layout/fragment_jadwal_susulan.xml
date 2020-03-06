@@ -13,28 +13,43 @@
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
+            android:id="@+id/llJadwalSusulan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_default"
-            app:cardBackgroundColor="@android:color/white"
-            app:cardCornerRadius="4dp"
-            app:cardElevation="4dp">
+            android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/jadwalSusulanSpinner"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:textAlignment="center" />
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_default"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp">
+
+                <Spinner
+                    android:id="@+id/jadwalSusulanSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
 
 
-        </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvJadwalSusulan"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvJadwalSusulan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnJadwalSusulanSaveToPdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/margin_default"
+            android:text="@string/label_save_to_pdf" />
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

@@ -1,15 +1,20 @@
 package com.luteh.kampusonline.ui.fragments.jadwal.pengganti;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.luteh.kampusonline.R;
 import com.luteh.kampusonline.common.Common;
@@ -18,13 +23,12 @@ import com.luteh.kampusonline.common.utils.RecyclerTouchListener;
 import com.luteh.kampusonline.model.jadwal.JadwalPengganti;
 import com.luteh.kampusonline.ui.fragments.jadwal.pengganti.adapter.JadwalPenggantiAdapter;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +39,8 @@ public class JadwalPenggantiFragment extends BaseFragment implements AdapterView
     Spinner jadwalPenggantiSpinner;
     @BindView(R.id.rvJadwalPengganti)
     RecyclerView rvJadwalPengganti;
+    @BindView(R.id.llJadwalPengganti)
+    LinearLayout llJadwalPengganti;
 
     private List<JadwalPengganti> jadwalPenggantiList = new ArrayList<>();
 
@@ -148,5 +154,14 @@ public class JadwalPenggantiFragment extends BaseFragment implements AdapterView
         this.jadwalPenggantiList.addAll(jadwalPenggantiList);
 
 //        Common.dismissProgressBar();
+    }
+
+    @OnClick(R.id.btnJadwalPenggantiSaveToPdf)
+    protected void saveToPdf() {
+        try {
+            Common.layoutToImage(llJadwalPengganti, getString(R.string.text_jadwal, getString(R.string.title_penggangti_fragment)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

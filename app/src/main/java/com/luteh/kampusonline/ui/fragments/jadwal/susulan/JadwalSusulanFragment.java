@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.luteh.kampusonline.R;
@@ -19,11 +20,13 @@ import com.luteh.kampusonline.ui.fragments.jadwal.ujian.JadwalUjianFragment;
 import com.luteh.kampusonline.ui.fragments.jadwal.ujian.JadwalUjianPresenterImp;
 import com.luteh.kampusonline.ui.fragments.jadwal.ujian.adapter.JadwalUjianAdapter;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +38,8 @@ public class JadwalSusulanFragment extends BaseFragment implements IJadwalSusula
     Spinner jadwalSusulanSpinner;
     @BindView(R.id.rvJadwalSusulan)
     RecyclerView rvJadwalSusulan;
+    @BindView(R.id.llJadwalSusulan)
+    LinearLayout llJadwalSusulan;
 
     private RecyclerView.Adapter mAdapter;
     private IJadwalSusulanPresenter iJadwalSusulanPresenter;
@@ -96,4 +101,12 @@ public class JadwalSusulanFragment extends BaseFragment implements IJadwalSusula
 
     }
 
+    @OnClick(R.id.btnJadwalSusulanSaveToPdf)
+    protected void saveToPdf() {
+        try {
+            Common.layoutToImage(llJadwalSusulan, getString(R.string.text_jadwal, getString(R.string.title_susulan_fragment)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
