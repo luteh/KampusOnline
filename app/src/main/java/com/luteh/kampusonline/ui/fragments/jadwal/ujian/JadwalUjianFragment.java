@@ -106,6 +106,7 @@ public class JadwalUjianFragment extends BaseFragment implements IJadwalUjianVie
     protected void saveToPdf() {
         try {
             Common.layoutToImage(llJadwalUjian, getString(R.string.text_jadwal, getString(R.string.title_ujian_fragment)));
+            Common.showSuccessMessage(context, getString(R.string.label_message_success_save_doc));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

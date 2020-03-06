@@ -99,6 +99,7 @@ public class JadwalKuliahFragment extends BaseFragment implements AdapterView.On
     protected void saveToPdf() {
         try {
             Common.layoutToImage(llJadwalKuliah, getString(R.string.text_jadwal, getString(R.string.title_kuliah_fragment)));
+            Common.showSuccessMessage(context, getString(R.string.label_message_success_save_doc));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -17,6 +18,8 @@ import com.luteh.kampusonline.common.Common;
 import com.luteh.kampusonline.common.base.BaseFragment;
 import com.luteh.kampusonline.model.rencanastudi.FRencanaStudi;
 import com.luteh.kampusonline.ui.fragments.rencanastudi.adapter.RencanaStudiAdapter;
+
+import java.io.FileNotFoundException;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -41,6 +44,8 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
     TextInputEditText etSksMatkul;
     @BindView(R.id.btnRencanaStudi)
     MaterialButton btnRencanaStudi;
+    @BindView(R.id.rlRencanaStudi)
+    RelativeLayout rlRencanaStudi;
 
     public RencanaStudiFragment() {
         // Required empty public constructor
@@ -70,6 +75,12 @@ public class RencanaStudiFragment extends BaseFragment implements IRencanaStudiV
     @OnClick(R.id.btnRencanaStudi)
     void onClickBtnRencanaStudi() {
         Common.showSuccessMessage(context, getString(R.string.label_message_success_submit_frs));
+        Common.showSuccessMessage(context, getString(R.string.label_message_success_save_doc));
+        try {
+            Common.layoutToImage(rlRencanaStudi, getString(R.string.title_rencana_studi_fragment));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

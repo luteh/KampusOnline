@@ -96,6 +96,7 @@ public class HasilStudiFragment extends BaseFragment implements AdapterView.OnIt
     protected void saveToPdf() {
         try {
             Common.layoutToImage(llHasilStudi, getString(R.string.title_hasil_studi_fragment));
+            Common.showSuccessMessage(context, getString(R.string.label_message_success_save_doc));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
